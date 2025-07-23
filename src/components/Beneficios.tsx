@@ -59,7 +59,6 @@ export default function Beneficios() {
             variant="h4"
             align="center"
             fontWeight={600}
-            className="text-gradient-primary"
             gutterBottom
           >
             Por que escolher a GrajaFibra?

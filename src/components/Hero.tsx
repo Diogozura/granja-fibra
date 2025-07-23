@@ -4,7 +4,6 @@ import { Box, Button, Grid, Typography, Paper, useTheme } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBolt, faShieldAlt, faClock } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
-import GradientTitle from './GradientTitle';
 
 export default function Hero() {
   const theme = useTheme();
@@ -19,9 +18,9 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <GradientTitle  variant="h2" component="h1" fontWeight={600} color="primary" gutterBottom>
+            <Typography  variant="h2" component="h1" fontWeight={600} color="primary" gutterBottom>
               Internet Fibra Ótica Ultra Rápida
-            </GradientTitle>
+            </Typography>
             <Typography variant="body1" color="text.secondary" paragraph>
               Conecte-se ao futuro com nossa internet fibra ótica de alta velocidade. Planos a partir de R$ 49,90/mês com instalação gratuita.
             </Typography>

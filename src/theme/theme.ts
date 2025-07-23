@@ -4,7 +4,7 @@ const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#7A5AF8', // Roxo principal
+      main: '#000000ff', // Roxo principal
     },
     secondary: {
       main: '#111111', // Preto para destaques/boxes

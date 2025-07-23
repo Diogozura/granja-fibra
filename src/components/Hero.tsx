@@ -82,7 +82,7 @@ export default function Hero() {
                 p: 4,
               }}
             >
-              <Typography variant="h6" color="primary" fontWeight={600} gutterBottom>
+              <Typography variant="h6" color="#fff" fontWeight={600} gutterBottom>
                 Cobertura Total
               </Typography>
               <Typography variant="body2" mb={3}>

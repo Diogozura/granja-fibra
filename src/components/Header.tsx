@@ -20,7 +20,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 
-const navItems = ['Inicio', 'Sobre', 'Planos', 'Ofertas', 'Contato', 'Faq'];
+const navItems = [
+  {
+  title:'Inicio',
+  link:'/'
+},
+  {
+  title:'Sobre',
+  link:'/sobre-nos'
+},
+  {
+  title:'Planos',
+  link:'/planos'
+},
+  {
+  title:'Ofertas',
+  link:'/ofertas'
+},
+  {
+  title:'Contato',
+  link:'/contato'
+},
+  {
+  title:'Faq',
+  link:'/faq'
+},
+
+];
 
 export default function Header() {
   const theme = useTheme();
@@ -32,16 +58,16 @@ export default function Header() {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', bgcolor: 'secondary.main', height: '100%' }}>
       <Box sx={{ my: 2 , p:1}}>
-        <Image src="/logo-granja-fibra.png" width={200} height={45} alt="logo granja fibra" />
+        <Image src="/logo-granja-fibra.png" width={200} height={45} alt="logo graja fibra" />
       </Box>
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+          <ListItem key={item.title} disablePadding>
             <ListItemButton sx={{ textAlign: 'center'  }}>
               <ListItemText
                 primary={
-                  <MuiLink href="#" underline="none" fontSize={20} color="white">
-                    {item}
+                  <MuiLink href={item.link} underline="none" fontSize={20} color="white">
+                    {item.title}
                   </MuiLink>
                 }
               />
@@ -57,7 +83,7 @@ export default function Header() {
       <AppBar position="static" color="secondary" elevation={0}>
         <Toolbar sx={{ justifyContent: 'space-between', py: 2 }}>
           <Box display="flex" alignItems="center" gap={1}>
-            <Image src="/logo-granja-fibra.png" width={180} height={50} alt="logo granja fibra" />
+            <Image src="/logo-granja-fibra.png" width={180} height={50} alt="logo graja fibra" />
           </Box>
 
           {isMobile ? (
@@ -67,8 +93,8 @@ export default function Header() {
           ) : (
             <Box display="flex" alignItems="center" gap={4}>
               {navItems.map((item) => (
-                <MuiLink key={item} href="#" underline="none" color="#fff">
-                  {item}
+                <MuiLink key={item.title} href={item.link} underline="none" color="#fff">
+                  {item.title}
                 </MuiLink>
               ))}
               <Button

@@ -7,6 +7,8 @@ import theme from '../theme/theme';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import { Inter } from 'next/font/google';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -21,7 +23,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline />
+          <Header />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

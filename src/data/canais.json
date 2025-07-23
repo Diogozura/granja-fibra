@@ -1,0 +1,28 @@
+{
+  "enderecoPrincipal": {
+    "titulo": "Endereço Principal",
+    "logradouro": "Rua Principal, 123, Centro - Sua Cidade",
+    "cep": "CEP: 00000-000",
+    "complemento": "Próximo ao shopping center"
+  },
+  "pontosAtendimento": [
+    "Centro da Cidade - Rua Principal, 123",
+    "Bairro Norte - Av. das Flores, 456",
+    "Shopping Center - Loja 201"
+  ],
+  "vendas": {
+    "titulo": "Vendas e Contratação",
+    "telefone": {
+      "label": "(11) 99999-9999",
+      "href": "tel:11999999999"
+    },
+    "email": {
+      "label": "vendas@grajafibra.com.br",
+      "href": "mailto:vendas@grajafibra.com.br"
+    }
+  },
+  "emergencial": {
+    "titulo": "Atendimento Emergencial",
+    "descricao": "Para problemas urgentes de conectividade, nossa equipe técnica está disponível 24/7 para resolver qualquer situação."
+  }
+}

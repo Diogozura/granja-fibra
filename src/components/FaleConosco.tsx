@@ -20,6 +20,7 @@ import {
   faRocket,
   faCheck,
 } from '@fortawesome/free-solid-svg-icons';
+import ConsultaCEPForm from './ConsultaCEPForm';
 
 export default function FaleConosco() {
   return (
@@ -47,7 +48,7 @@ export default function FaleConosco() {
 
         <Grid container spacing={6}>
           {/* Informações */}
-          <Grid size={{xs:12, sm:6}}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <Typography fontWeight={600} color="primary" mb={2}>
               Informações de Contato
             </Typography>
@@ -78,7 +79,7 @@ export default function FaleConosco() {
                 </Typography>
               </Box>
             </Stack>
-
+            <ConsultaCEPForm />
             {/* Instalação Express */}
             <Paper
               elevation={0}
@@ -116,7 +117,7 @@ export default function FaleConosco() {
           </Grid>
 
           {/* Formulário */}
-          <Grid size={{xs:12, sm:6}} >
+          <Grid size={{ xs: 12, sm: 6 }} >
             <Paper
               elevation={1}
               sx={{ p: 4, borderRadius: 3 }}
@@ -125,10 +126,10 @@ export default function FaleConosco() {
                 Solicite sua instalação
               </Typography>
               <Grid container spacing={2}>
-                <Grid size={{xs:12, sm:6}}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <TextField fullWidth label="Nome completo *" size="small" />
                 </Grid>
-                <Grid size={{xs:12, sm:6}}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <TextField fullWidth label="Telefone/WhatsApp *" size="small" />
                 </Grid>
                 <Grid size={12}>

@@ -8,9 +8,14 @@ import { motion } from 'framer-motion';
 
 
 
+
 export default function OfertasEmpresa() {
     return (
         <>
+            <head>
+                <title>Nossas ofertas - Graja fibra</title>
+                <meta name="description" content="Provedor de Internet Granja fibra A Melhor Internet você encontra aqui Contamos com diversos planos, atendimento de qualidade e tecnologia de ponta para levar a melhor conexão até você!" />
+            </head>
             <Container maxWidth="lg" sx={{ py: 10 }}>
                 {/* Título principal */}
                 <motion.div
@@ -30,15 +35,15 @@ export default function OfertasEmpresa() {
                     </Typography>
                 </motion.div>
 
-           
+
 
 
                 <Ofertas />
 
-                <FaleConosco/>
+                <FaleConosco />
 
-      
-                
+
+
             </Container>
         </>
     )

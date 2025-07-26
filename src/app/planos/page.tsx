@@ -5,9 +5,14 @@ import { Container, Typography } from "@mui/material";
 import { motion } from 'framer-motion';
 import ComparacaoPlanos from "./ComparacaoPlanos";
 
+
 export default function PlanosEmpresa() {
     return (
         <>
+            <head>
+                <title>Nossos planos - Graja fibra</title>
+                <meta name="description" content="Provedor de Internet Granja fibra A Melhor Internet você encontra aqui Contamos com diversos planos, atendimento de qualidade e tecnologia de ponta para levar a melhor conexão até você!" />
+            </head>
             <Container maxWidth="lg" sx={{ py: 10 }}>
                 {/* Título principal */}
                 <motion.div

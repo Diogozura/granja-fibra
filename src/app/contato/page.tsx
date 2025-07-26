@@ -3,17 +3,17 @@ import FaleConosco from "@/components/FaleConosco";
 import { Container, Typography } from "@mui/material";
 import { motion } from 'framer-motion';
 import ContatoCards from "./ContatoCards";
-import Head from "next/head";
+
 import CanaisAtendimento from "./CanaisAtendimento";
 import CallToAction from "./CallToAction";
 
 export default function Contato() {
     return (
         <>
-        <Head>
+        <head>
             <title>Contato - Graja fibra</title>
            <meta name="description" content="Contato - graja fibra , tire seus dúvidas em nosso canal de atendimento , pelo telefone ou whatsApp" />
-        </Head>
+        </head>
             <Container maxWidth="lg" sx={{ py: 10 }}>
 
                 <motion.div

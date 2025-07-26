@@ -8,9 +8,14 @@ import Perguntas from "./perguntas";
 
 
 
+
 export default function Faq() {
     return (
         <>
+            <head>
+                <title>Faq Graja fibra </title>
+                <meta name="description" content="Provedor de Internet Granja fibra A Melhor Internet você encontra aqui Contamos com diversos planos, atendimento de qualidade e tecnologia de ponta para levar a melhor conexão até você!" />
+            </head>
             <Container maxWidth="lg" sx={{ py: 10 }}>
                 {/* Título principal */}
                 <motion.div
@@ -28,9 +33,9 @@ export default function Faq() {
                     >
                         Perguntas Frequentes
                     </Typography>
-                
+
                 </motion.div>
-                  <motion.div
+                <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.6 }}
@@ -49,8 +54,8 @@ export default function Faq() {
 
 
 
-            <Perguntas/>
-             
+                <Perguntas />
+
 
                 <FaleConosco />
 

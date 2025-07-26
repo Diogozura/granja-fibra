@@ -100,7 +100,7 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade}`;
             >
               <Box display="flex" alignItems="center" gap={1} mb={1}>
                 <FontAwesomeIcon icon={faRocket} />
-                <Typography fontWeight={600} color="primary">
+                <Typography fontWeight={600} color="#fff">
                   Instalação Express
                 </Typography>
               </Box>

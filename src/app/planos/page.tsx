@@ -54,8 +54,8 @@ export default function PlanosEmpresa() {
                     viewport={{ once: true }}
                 >
                     <Typography
-                        component="h1"
-                        variant="h2"
+                        component="h2"
+                        variant="h3"
                         align="center"
                         fontWeight={600}
                         gutterBottom

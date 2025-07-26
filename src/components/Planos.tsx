@@ -12,6 +12,7 @@ import {
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from 'react';
 
 const planos = [
   {
@@ -59,8 +60,26 @@ const planos = [
     destaque: false,
   },
 ];
+interface Plano {
+  nome: string;
+  velocidade: string;
+  descricao: string;
+  preco: string;
+  precoOriginal: string;
+  destaque: boolean;
+  beneficios: [string]
 
+}
 export default function Planos() {
+
+  // const [planos, setPlanos] = useState<Plano[]>([]);
+
+  // useEffect(() => {
+  //   fetch('http://localhost/sistema_avaliacoes/planos.json')
+  //     .then((res) => res.json())
+  //     .then((data) => setPlanos(data));
+  // }, []);
+  // console.log('planos', planos)
   return (
     <Box py={10} sx={{ background: '#F5F6FA' }}>
       <Container maxWidth="lg">
@@ -88,33 +107,31 @@ export default function Planos() {
           {planos.map((plano, index) => {
             const card = (
               <Paper
-                elevation={plano.destaque ? 0 : 1}
+                elevation={plano?.destaque ? 0 : 1}
                 sx={{
                   position: 'relative',
                   p: 4,
                   height: '100%',
                   borderRadius: 3,
                   bgcolor: 'white',
-                  border: plano.destaque ? '2px solid transparent' : '1px solid #ddd',
-                  backgroundImage: plano.destaque
-                    ? 'linear-gradient(white, white), linear-gradient(135deg, #3756FB 45%, #771FE6 100%)'
-                    : undefined,
+                  border: '1px solid #ddd',
+                 
                   backgroundOrigin: 'border-box',
-                  backgroundClip: plano.destaque ? 'padding-box, border-box' : undefined,
+                  backgroundClip: 'padding-box, border-box' ,
                   transition: 'transform 0.3s ease',
                   '&:hover': {
                     transform: 'scale(1.03)',
                   },
                 }}
               >
-                {plano.destaque && (
+                {plano?.destaque && (
                   <Box
                     sx={{
                       position: 'absolute',
                       top: -14,
                       left: '50%',
                       transform: 'translateX(-50%)',
-                      bgcolor: '#3756FB',
+                      bgcolor: '#000000',
                       color: 'white',
                       fontSize: 12,
                       px: 2,
@@ -172,7 +189,7 @@ export default function Planos() {
             );
 
             return (
-              <Grid size={{xs:12, md:4}} key={index}>
+              <Grid size={{ xs: 12, md: 4 }} key={index}>
                 <motion.div
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}

@@ -58,7 +58,7 @@ export default function Header() {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', bgcolor: 'secondary.main', height: '100%' }}>
       <Box sx={{ my: 2 , p:1}}>
-        <Image src="/logo-granja-fibra.png" width={200} height={45} alt="logo graja fibra" />
+        <Image src="/logo-granja-fibra.png" width={200} height={48} alt="logo graja fibra" />
       </Box>
       <List>
         {navItems.map((item) => (
@@ -83,7 +83,7 @@ export default function Header() {
       <AppBar position="static" color="secondary" elevation={0}>
         <Toolbar sx={{ justifyContent: 'space-between', py: 2 }}>
           <Box display="flex" alignItems="center" gap={1}>
-            <Image src="/logo-granja-fibra.png" width={180} height={50} alt="logo graja fibra" />
+            <Image src="/logo-granja-fibra.png" width={200} height={48} alt="logo graja fibra" />
           </Box>
 
           {isMobile ? (

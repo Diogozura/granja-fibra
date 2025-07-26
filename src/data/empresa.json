@@ -1,0 +1,53 @@
+{
+  "nomeEmpresa": "GRAJA FIBRA TELECOMUNICAÇÕES LTDA",
+  "cnpj": "57.962.323/0001-83",
+  "inscricaoEstadual": "123.456.789.000",
+  "inscricaoMunicipal": "987654321",
+  "licencaAnatel": {
+    "numero": "01234/2022",
+    "tipo": "SCM - Serviço de Comunicação Multimídia",
+    "dataEmissao": "2022-03-10"
+  },
+  "telefone": "0800 295 0800",
+  "whatsapp": "+55 11 5295 0800",
+  "email": "contato@grajafibra.com.br",
+  "site": "https://www.grajafibra.com.br",
+  "endereco": {
+    "logradouro": "Avenida Ernesto João Marcelino,",
+    "numero": "2241",
+    "complemento": "Sala 101",
+    "bairro": "Fazenda da ilha",
+    "cidade": "Embu Guaçu",
+    "estado": "SP",
+    "cep": "06905-040",
+    "link": "https://maps.app.goo.gl/WBygjQu9X85S4dX77"
+  },
+  "horarioFuncionamento": {
+    "segundaASexta": "07:00 - 20:00",
+    "sabado": "08:00 - 18:00",
+    "domingo": "08:00 - 18:00"
+  },
+  "responsavelTecnico": {
+    "nome": "João da Silva",
+    "crea": "1234567890-SP"
+  },
+  "areasAtendidas": [
+    "Grajáu",
+    "Parelheiros",
+    "Capão Redondo",
+    "Cidade Dutra"
+  ],
+  "redesSociais": {
+    "facebook": "https://facebook.com/grajafibra",
+    "instagram": "https://instagram.com/grajafibra",
+    "linkedin": "https://linkedin.com/company/grajafibra"
+  },
+  "dadosBancarios": {
+    "banco": "Banco do Brasil",
+    "agencia": "1234-5",
+    "conta": "67890-1",
+    "tipoConta": "Conta Corrente",
+    "pix": "contato@grajafibra.com.br"
+  },
+  "observacoes": "Atendimento personalizado para residências e empresas. Planos a partir de 300Mbps."
+}

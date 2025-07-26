@@ -1,0 +1,44 @@
+[
+  {
+    "icone": "fa-star",
+    "categoria": "Promoção",
+    "titulo": "Mega promoção",
+    "destaque": "50% OFF nos 3 primeiros meses",
+    "descricao": "Desconto especial para novos clientes em todos os planos",
+    "beneficios": [
+      "Todos os planos",
+      "Wi-Fi 6 incluso",
+      "Instalação grátis",
+      "Sem fidelidade"
+    ],
+    "link": "/contato"
+  },
+  {
+    "icone": "fa-star",
+    "categoria": "Promoção",
+    "titulo": "Mega promoção",
+    "destaque": "50% OFF nos 3 primeiros meses",
+    "descricao": "Desconto especial para novos clientes em todos os planos",
+    "beneficios": [
+      "Todos os planos",
+      "Wi-Fi 6 incluso",
+      "Instalação grátis",
+      "Sem fidelidade"
+    ],
+    "link": "/contato"
+  },
+  {
+    "icone": "fa-star",
+    "categoria": "Promoção",
+    "titulo": "Mega promoção",
+    "destaque": "50% OFF nos 3 primeiros meses",
+    "descricao": "Desconto especial para novos clientes em todos os planos",
+    "beneficios": [
+      "Todos os planos",
+      "Wi-Fi 6 incluso",
+      "Instalação grátis",
+      "Sem fidelidade"
+    ],
+    "link": "/contato"
+  }
+]

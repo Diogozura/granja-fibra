@@ -1,0 +1,28 @@
+{
+  "planos": [
+    {
+      "nome": "Essencial",
+      "velocidade": "200 Mbps",
+      "descricao": "Ideal para navegação básica, redes sociais e streaming em 1 tela.",
+      "preco": "R$ 79,90"
+    },
+    {
+      "nome": "Família",
+      "velocidade": "500 Mbps",
+      "descricao": "Perfeito para famílias conectadas com múltiplos dispositivos.",
+      "preco": "R$ 109,90"
+    },
+    {
+      "nome": "Turbo",
+      "velocidade": "1000 Mbps",
+      "descricao": "Alta performance para gamers, streamers e home office pesado.",
+      "preco": "R$ 149,90"
+    },
+    {
+      "nome": "Empresarial",
+      "velocidade": "2100 Mbps",
+      "descricao": "Solução de ultra velocidade para empresas e grandes demandas.",
+      "preco": "Sob consulta"
+    }
+  ]
+}

@@ -1,44 +1,137 @@
 'use client';
-import { useState } from 'react';
 
+import { useState } from 'react';
+import {
+  Box,
+  Button,
+  TextField,
+  Typography,
+  Grid,
+  Paper,
+  MenuItem,
+} from '@mui/material';
+import dados from '@/data/planosEOfertas.json';
 export default function ConsultaCEPForm() {
   const [cep, setCep] = useState('');
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [dadosCep, setDadosCep] = useState<any>(null);
   const [mensagem, setMensagem] = useState('');
-  const [status, setStatus] = useState<'ok' | 'erro' | ''>('');
-
-  const verificarCEP = async () => {
-    if (cep.length < 8) return setMensagem('Digite um CEP válido');
+  const [liberarFormulario, setLiberarFormulario] = useState(false);
+  const { planos, ofertas } = dados;
+  const consultarCep = async () => {
+    const cepLimpo = cep.replace(/\D/g, '');
+    if (cepLimpo.length !== 8) {
+      setMensagem('❌ CEP inválido');
+      setLiberarFormulario(false);
+      return;
+    }
 
     try {
-      const res = await fetch(`/api/check-cep?cep=${cep}`);
+      const res = await fetch(`http://localhost/sistema_avaliacoes/consultaCep.php?cep=${cepLimpo}`);
       const data = await res.json();
 
-      setStatus(data.ok ? 'ok' : 'erro');
-      setMensagem(data.message);
+      if (data.autorizado) {
+        setMensagem(`✅ Atendemos sua região: ${data.dados.cidade} - ${data.dados.estado}`);
+        setDadosCep(data.dados);
+        setLiberarFormulario(true);
+      } else {
+        setMensagem(data.mensagem || '❌ Não trabalhamos nessa região');
+        setLiberarFormulario(false);
+      }
     } catch (err) {
-      setMensagem('Erro na consulta');
-      setStatus('erro');
+      setMensagem('Erro ao consultar o CEP');
+      setLiberarFormulario(false);
     }
   };
-
+  console.log('dadosCep', dadosCep)
   return (
-    <div style={{ maxWidth: 400, margin: '2rem auto', padding: 20, background: '#fff', borderRadius: 8 }}>
-      <h3>Consultar cobertura por CEP</h3>
-      <input
-        type="text"
-        placeholder="Digite o CEP"
-        value={cep}
-        onChange={(e) => setCep(e.target.value.replace(/\D/g, ''))}
-        style={{ padding: 10, width: '100%', marginBottom: 10 }}
-      />
-      <button onClick={verificarCEP} style={{ padding: 10, width: '100%' }}>
-        Verificar
-      </button>
-      {mensagem && (
-        <p style={{ color: status === 'ok' ? 'green' : 'red', marginTop: 10 }}>
-          {mensagem}
-        </p>
+    <Box mt={4}>
+      {!liberarFormulario && (
+        <>
+
+          <Typography fontWeight={600} mb={1}>
+            Verifique se atendemos sua região
+          </Typography>
+          <Box display="flex" gap={1}>
+            <TextField
+              label="Digite seu CEP"
+              value={cep}
+              onChange={(e) => setCep(e.target.value)}
+              size="small"
+              fullWidth
+            />
+            <Button onClick={consultarCep} variant="contained">
+              Verificar
+            </Button>
+          </Box>
+          {mensagem && (
+            <Typography mt={1} color={liberarFormulario ? 'green' : 'error'}>
+              {mensagem}
+            </Typography>
+          )}
+        </>
       )}
-    </div>
+
+
+
+      {liberarFormulario && (
+        <Paper elevation={1} sx={{ p: 3, mt: 4, borderRadius: 2 }}>
+          <Typography variant="h6" fontWeight={600} color="primary" gutterBottom>
+            Solicite sua instalação
+          </Typography>
+          <Grid container spacing={2}>
+            <Grid size={{ xs: 12, sm: 6 }}>
+              <TextField fullWidth label="Nome completo *" size="small" />
+            </Grid>
+            <Grid size={{ xs: 12, sm: 6 }}>
+              <TextField fullWidth label="Telefone/WhatsApp *" size="small" />
+            </Grid>
+            <Grid size={12}>
+              <TextField fullWidth label="E-mail *" size="small" />
+            </Grid>
+            <Grid size={12}>
+              <TextField
+                fullWidth
+                label="Endereço completo *"
+                defaultValue={`${dadosCep?.rua || ''}, ${dadosCep?.bairro || ''}`}
+                size="small"
+              />
+            </Grid>
+            <Grid size={12}>
+              <TextField
+                select
+                fullWidth
+                label="Plano de interesse"
+                size="small"
+                defaultValue=""
+              >
+                {planos.map((plano, i) => (
+                  <MenuItem key={i} value={plano.nome}>
+                    {plano.nome} – {plano.velocidade}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </Grid>
+            <Grid size={12}>
+              <TextField
+                fullWidth
+                label="Mensagem (opcional)"
+                multiline
+                rows={3}
+                size="small"
+              />
+            </Grid>
+
+          </Grid>
+          <Button
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, bgcolor: '#111', textTransform: 'none', '&:hover': { bgcolor: '#000' } }}
+          >
+            Enviar Solicitação
+          </Button>
+        </Paper>
+      )}
+    </Box>
   );
 }

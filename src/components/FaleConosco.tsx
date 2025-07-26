@@ -8,6 +8,7 @@ import {
   Paper,
   Stack,
   TextField,
+  Link,
   Typography,
 } from '@mui/material';
 import { motion } from 'framer-motion';
@@ -21,8 +22,13 @@ import {
   faCheck,
 } from '@fortawesome/free-solid-svg-icons';
 import ConsultaCEPForm from './ConsultaCEPForm';
+import empresa from '@/data/empresa.json'; // <-- importando os dados
+
 
 export default function FaleConosco() {
+ const enderecoCompleto = `${empresa.endereco.logradouro}, ${empresa.endereco.numero} – ${empresa.endereco.complemento}
+${empresa.endereco.bairro}, ${empresa.endereco.cidade}`;
+
   return (
     <Box py={10} sx={{ background: '#F5F6FA' }}>
       <Container maxWidth="lg">
@@ -57,19 +63,20 @@ export default function FaleConosco() {
               <Box display="flex" gap={1}>
                 <FontAwesomeIcon icon={faPhone} />
                 <Typography variant="body2">
-                  <strong>Telefone :</strong> (11) 99999-9999
+                  <strong>Telefone :</strong> {empresa.telefone}
                 </Typography>
               </Box>
               <Box display="flex" gap={1}>
                 <FontAwesomeIcon icon={faEnvelope} />
                 <Typography variant="body2">
-                  <strong>E-mail :</strong> contato@grajafibra.com.br
+                  <strong>E-mail :</strong> {empresa.email}
                 </Typography>
               </Box>
               <Box display="flex" gap={1}>
                 <FontAwesomeIcon icon={faMapMarkerAlt} />
                 <Typography variant="body2">
-                  <strong>Endereço :</strong> Rua Principal, 123 – Centro
+                  <strong>Endereço :</strong> <Link href={empresa.endereco.link}   underline="hover"
+                  >{enderecoCompleto}</Link>
                 </Typography>
               </Box>
               <Box display="flex" gap={1}>
@@ -79,7 +86,7 @@ export default function FaleConosco() {
                 </Typography>
               </Box>
             </Stack>
-            <ConsultaCEPForm />
+            
             {/* Instalação Express */}
             <Paper
               elevation={0}
@@ -125,7 +132,8 @@ export default function FaleConosco() {
               <Typography variant="h6" fontWeight={600} color="primary" gutterBottom>
                 Solicite sua instalação
               </Typography>
-              <Grid container spacing={2}>
+              <ConsultaCEPForm />
+              {/* <Grid container spacing={2}>
                 <Grid size={{ xs: 12, sm: 6 }}>
                   <TextField fullWidth label="Nome completo *" size="small" />
                 </Grid>
@@ -162,7 +170,7 @@ export default function FaleConosco() {
                 }}
               >
                 Enviar Solicitação
-              </Button>
+              </Button> */}
               <Typography variant="caption" color="text.secondary" mt={1} display="block" align="center">
                 * Campos obrigatórios – Resposta em até 2 horas úteis
               </Typography>

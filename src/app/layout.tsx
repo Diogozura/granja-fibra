@@ -9,6 +9,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import { Inter } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import CookieBanner from '@/components/CookieBanner';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <CssBaseline />
           <Header />
           {children}
+          <CookieBanner />
           <Footer />
         </ThemeProvider>
       </body>

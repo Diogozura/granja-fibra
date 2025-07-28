@@ -43,7 +43,11 @@ export default function Header() {
           <ListItem key={item.title} disablePadding>
             <Link href={item.link} passHref>
               <ListItemButton sx={{ textAlign: 'center' }}>
-                <ListItemText primary={item.title} />
+                <ListItemText primary={item.title} primaryTypographyProps={{
+                  color: 'white',
+                  fontSize: 18,
+                  fontWeight: 500,
+                }} />
               </ListItemButton>
             </Link>
           </ListItem>

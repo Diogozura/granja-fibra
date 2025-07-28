@@ -10,7 +10,7 @@ import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-sv
 
 const linksUteis = [
   {
-    title: 'faq',
+    title: 'Faq',
     link: '/faq'
   },
   {

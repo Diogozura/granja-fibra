@@ -3,35 +3,41 @@
 import { Box, Button, Grid, Typography, Paper, useTheme } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBolt, faShieldAlt, faClock } from '@fortawesome/free-solid-svg-icons';
-import { motion } from 'framer-motion';
 
 export default function Hero() {
   const theme = useTheme();
+
+  const scrollToId = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <Box px={{ xs: 2, md: 1 }} py={{ xs: 6, md: 10 }} maxWidth="lg" mx="auto">
       <Grid container spacing={6} alignItems="center">
         {/* Conteúdo à esquerda */}
         <Grid size={{xs:12, md:7}}>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Typography  variant="h2" component="h1" fontWeight={600} color="primary" gutterBottom>
+      
+            <Typography variant="h2" component="h1" fontWeight={600} color="primary" gutterBottom>
               Internet Fibra Ótica Ultra Rápida
             </Typography>
             <Typography variant="body1" color="text.secondary" paragraph>
-              Conecte-se ao futuro com nossa internet fibra ótica de alta velocidade. Planos a partir de R$ 49,90/mês com instalação gratuita.
+              Conecte-se ao futuro com nossa internet fibra ótica de alta velocidade. Planos a partir de R$ 79,90/mês com instalação gratuita.
             </Typography>
 
             <Box mt={3} display="flex" gap={2} flexWrap="wrap">
-              <Button variant="contained" size="large" sx={{ bgcolor: '#111', '&:hover': { bgcolor: '#000' } }}>
+              <Button
+                variant="contained"
+                size="large"
+                sx={{ bgcolor: '#111', '&:hover': { bgcolor: '#000' } }}
+                onClick={() => scrollToId('planos')}
+              >
                 Ver Planos →
               </Button>
               <Button
                 variant="outlined"
                 size="large"
+                onClick={() => scrollToId('fale-conosco')}
                 sx={{
                   borderColor: theme.palette.primary.main,
                   color: theme.palette.primary.main,
@@ -53,7 +59,7 @@ export default function Hero() {
                 { icon: faClock, label: 'Suporte', value: '24h' },
               ].map(({ icon, label, value }) => (
                 <Box key={label} textAlign="center">
-                  <FontAwesomeIcon icon={icon} size="2x" />
+                  <FontAwesomeIcon icon={icon} size="2x" aria-label={label} />
                   <Typography fontWeight={600} color="primary" mt={1}>
                     {value}
                   </Typography>
@@ -63,16 +69,12 @@ export default function Hero() {
                 </Box>
               ))}
             </Box>
-          </motion.div>
+         
         </Grid>
 
         {/* Card de Cobertura Total */}
         <Grid size={{xs:12, md:5}} >
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
+        
             <Paper
               elevation={0}
               sx={{
@@ -120,7 +122,7 @@ export default function Hero() {
                 </Box>
               </Box>
             </Paper>
-          </motion.div>
+          
         </Grid>
       </Grid>
     </Box>

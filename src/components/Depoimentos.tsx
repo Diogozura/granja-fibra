@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Container, Grid, Typography, Paper, Stack } from '@mui/material';
+import { Box, Container, Grid, Typography, Paper } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';

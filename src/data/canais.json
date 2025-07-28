@@ -13,8 +13,8 @@
   "vendas": {
     "titulo": "Vendas e Contratação",
     "telefone": {
-      "label": "(11) 99999-9999",
-      "href": "tel:11999999999"
+      "label": "+55 11 5295 0800",
+      "href": "tel:+55 11 5295 0800"
     },
     "email": {
       "label": "vendas@grajafibra.com.br",

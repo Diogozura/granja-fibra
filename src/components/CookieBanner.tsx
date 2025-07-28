@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Box, Button, Typography, useTheme, Stack, Link, Paper } from '@mui/material';
+import { Box, Button, Typography, useTheme, Link, Paper } from '@mui/material';
 
 export default function CookieBanner() {
     const [showBanner, setShowBanner] = useState(false);

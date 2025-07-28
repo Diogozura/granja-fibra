@@ -2,25 +2,22 @@
 
 import { Container, Typography, Box } from '@mui/material';
 import { motion } from 'framer-motion';
-import Valores from './Valores';
+import dynamic from 'next/dynamic';
+import Head from 'next/head';
 
+const Valores = dynamic(() => import('./Valores'));
 
 export default function Sobre() {
     return (
 
         <>
-            <head>
+            <Head>
                 <title>Sobre nós - graja fibra </title>
                 <meta name="description" content="Provedor de Internet Granja fibra A Melhor Internet você encontra aqui Contamos com diversos planos, atendimento de qualidade e tecnologia de ponta para levar a melhor conexão até você!" />
-            </head>
+            </Head>
             <Container maxWidth="lg" sx={{ py: 10 }}>
                 {/* Título principal */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                >
+                
                     <Typography
                         component="h1"
                         variant="h2"
@@ -31,14 +28,9 @@ export default function Sobre() {
                     >
                         Sobre a GrajaFibra
                     </Typography>
-                </motion.div>
+               
 
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, duration: 0.6 }}
-                    viewport={{ once: true }}
-                >
+               
                     <Typography
                         component="p"
                         variant="body1"
@@ -52,16 +44,11 @@ export default function Sobre() {
                         aos principais datacenters e geradores de conteúdo do mundo. Nosso compromisso
                         é entregar qualidade, estabilidade e um atendimento que faz a diferença.
                     </Typography>
-                </motion.div>
+                
 
                 {/* Seção Nossa História */}
                 <Box mt={12}>
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        viewport={{ once: true }}
-                    >
+                  
                         <Typography
                             component="h2"
                             variant="h3"
@@ -72,7 +59,7 @@ export default function Sobre() {
                         >
                             Nossa História
                         </Typography>
-                    </motion.div>
+                    
 
                     {[
                         `A Graja Fibra iniciou suas atividades em 2008, com o propósito de levar conexão de qualidade para a região do Grajaú e bairros vizinhos. Ao longo dos anos, investimos em infraestrutura própria, migrando da tecnologia via rádio para fibra óptica, sempre buscando excelência em nossos serviços.`,

@@ -67,7 +67,7 @@ interface Plano {
   preco: string;
   precoOriginal: string;
   destaque: boolean;
-  beneficios: [string]
+  beneficios: string[];
 
 }
 export default function Planos() {
@@ -81,7 +81,7 @@ export default function Planos() {
   // }, []);
   // console.log('planos', planos)
   return (
-    <Box py={10} sx={{ background: '#F5F6FA' }}>
+    <Box py={10} sx={{ background: '#F5F6FA' }} id='planos'>
       <Container maxWidth="lg">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -193,7 +193,7 @@ export default function Planos() {
                 <motion.div
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.15 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
                   {card}

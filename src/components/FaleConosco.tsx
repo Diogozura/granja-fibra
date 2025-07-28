@@ -2,12 +2,10 @@
 
 import {
   Box,
-  Button,
   Container,
   Grid,
   Paper,
   Stack,
-  TextField,
   Link,
   Typography,
 } from '@mui/material';
@@ -21,16 +19,22 @@ import {
   faRocket,
   faCheck,
 } from '@fortawesome/free-solid-svg-icons';
-import ConsultaCEPForm from './ConsultaCEPForm';
+
 import empresa from '@/data/empresa.json'; // <-- importando os dados
 
+import dynamic from 'next/dynamic';
+import { useSearchParams } from 'next/navigation';
+
+const ConsultaCEPForm = dynamic(() => import('@/components/ConsultaCEPForm'));
 
 export default function FaleConosco() {
- const enderecoCompleto = `${empresa.endereco.logradouro}, ${empresa.endereco.numero} – ${empresa.endereco.complemento}
+  const searchParams = useSearchParams();
+  const planoInteresse = searchParams?.get('plano') ?? '';
+  const enderecoCompleto = `${empresa.endereco.logradouro}, ${empresa.endereco.numero} – ${empresa.endereco.complemento}
 ${empresa.endereco.bairro}, ${empresa.endereco.cidade}`;
 
   return (
-    <Box py={10} sx={{ background: '#F5F6FA' }}>
+    <Box py={10} sx={{ background: '#F5F6FA' }} id='fale-conosco'>
       <Container maxWidth="lg">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -75,7 +79,7 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade}`;
               <Box display="flex" gap={1}>
                 <FontAwesomeIcon icon={faMapMarkerAlt} />
                 <Typography variant="body2">
-                  <strong>Endereço :</strong> <Link href={empresa.endereco.link}   underline="hover"
+                  <strong>Endereço :</strong> <Link href={empresa.endereco.link} underline="hover"
                   >{enderecoCompleto}</Link>
                 </Typography>
               </Box>
@@ -86,7 +90,7 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade}`;
                 </Typography>
               </Box>
             </Stack>
-            
+
             {/* Instalação Express */}
             <Paper
               elevation={0}
@@ -132,45 +136,7 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade}`;
               <Typography variant="h6" fontWeight={600} color="primary" gutterBottom>
                 Solicite sua instalação
               </Typography>
-              <ConsultaCEPForm />
-              {/* <Grid container spacing={2}>
-                <Grid size={{ xs: 12, sm: 6 }}>
-                  <TextField fullWidth label="Nome completo *" size="small" />
-                </Grid>
-                <Grid size={{ xs: 12, sm: 6 }}>
-                  <TextField fullWidth label="Telefone/WhatsApp *" size="small" />
-                </Grid>
-                <Grid size={12}>
-                  <TextField fullWidth label="E-mail *" size="small" />
-                </Grid>
-                <Grid size={12}>
-                  <TextField fullWidth label="Endereço completo *" size="small" />
-                </Grid>
-                <Grid size={12}>
-                  <TextField fullWidth label="Plano de interesse" size="small" />
-                </Grid>
-                <Grid size={12}>
-                  <TextField
-                    fullWidth
-                    label="Mensagem (opcional)"
-                    multiline
-                    rows={3}
-                    size="small"
-                  />
-                </Grid>
-              </Grid>
-              <Button
-                fullWidth
-                variant="contained"
-                sx={{
-                  mt: 3,
-                  bgcolor: '#111',
-                  textTransform: 'none',
-                  '&:hover': { bgcolor: '#000' },
-                }}
-              >
-                Enviar Solicitação
-              </Button> */}
+              <ConsultaCEPForm planoInteresse={planoInteresse}/>
               <Typography variant="caption" color="text.secondary" mt={1} display="block" align="center">
                 * Campos obrigatórios – Resposta em até 2 horas úteis
               </Typography>

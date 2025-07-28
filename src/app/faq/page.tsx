@@ -1,10 +1,16 @@
 'use client';
 
-import FaleConosco from "@/components/FaleConosco";
-import Ofertas from "@/components/Oferta";
 import { Container, Typography } from "@mui/material";
 import { motion } from 'framer-motion';
-import Perguntas from "./perguntas";
+
+import dynamic from 'next/dynamic';
+import Head from "next/head";
+import { Suspense } from "react";
+
+const FaleConosco = dynamic(() => import('@/components/FaleConosco'), {
+  ssr: false,
+});
+const Perguntas = dynamic(() => import('./perguntas'));
 
 
 
@@ -12,10 +18,10 @@ import Perguntas from "./perguntas";
 export default function Faq() {
     return (
         <>
-            <head>
+            <Head>
                 <title>Faq Graja fibra </title>
                 <meta name="description" content="Provedor de Internet Granja fibra A Melhor Internet você encontra aqui Contamos com diversos planos, atendimento de qualidade e tecnologia de ponta para levar a melhor conexão até você!" />
-            </head>
+            </Head>
             <Container maxWidth="lg" sx={{ py: 10 }}>
                 {/* Título principal */}
                 <motion.div
@@ -57,7 +63,9 @@ export default function Faq() {
                 <Perguntas />
 
 
-                <FaleConosco />
+                <Suspense fallback={<div>Carregando contato...</div>}>
+                    <FaleConosco />
+                </Suspense>
 
 
 

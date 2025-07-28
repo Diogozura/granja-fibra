@@ -145,9 +145,6 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.es
             <Link href="/politica-privacidade" underline="hover" color="grey.500">
               Política de Privacidade
             </Link>
-            <Link href="/termo-uso" underline="hover" color="grey.500">
-              Termos de Uso
-            </Link>
           </Stack>
         </Box>
       </Container>

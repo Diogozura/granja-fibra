@@ -11,13 +11,26 @@ import {
   MenuItem,
 } from '@mui/material';
 import dados from '@/data/planosEOfertas.json';
-export default function ConsultaCEPForm() {
+
+type DadosCep = {
+  cidade: string;
+  estado: string;
+  rua: string;
+  bairro: string;
+};
+
+type Props = {
+  planoInteresse?: string;
+};
+
+export default function ConsultaCEPForm({ planoInteresse = '' }: Props) {
+  
   const [cep, setCep] = useState('');
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [dadosCep, setDadosCep] = useState<any>(null);
+  const [dadosCep, setDadosCep] = useState<DadosCep | null>(null);
   const [mensagem, setMensagem] = useState('');
   const [liberarFormulario, setLiberarFormulario] = useState(false);
-  const { planos, ofertas } = dados;
+  const { planos } = dados;
+
   const consultarCep = async () => {
     const cepLimpo = cep.replace(/\D/g, '');
     if (cepLimpo.length !== 8) {
@@ -38,17 +51,16 @@ export default function ConsultaCEPForm() {
         setMensagem(data.mensagem || '❌ Não trabalhamos nessa região');
         setLiberarFormulario(false);
       }
-    } catch (err) {
+    } catch {
       setMensagem('Erro ao consultar o CEP');
       setLiberarFormulario(false);
     }
   };
-  console.log('dadosCep', dadosCep)
+
   return (
     <Box mt={4}>
       {!liberarFormulario && (
         <>
-
           <Typography fontWeight={600} mb={1}>
             Verifique se atendemos sua região
           </Typography>
@@ -72,18 +84,16 @@ export default function ConsultaCEPForm() {
         </>
       )}
 
-
-
       {liberarFormulario && (
         <Paper elevation={1} sx={{ p: 3, mt: 4, borderRadius: 2 }}>
           <Typography variant="h6" fontWeight={600} color="primary" gutterBottom>
             Solicite sua instalação
           </Typography>
           <Grid container spacing={2}>
-            <Grid size={{ xs: 12, sm: 6 }}>
+            <Grid size={{xs:12, sm:6}}>
               <TextField fullWidth label="Nome completo *" size="small" />
             </Grid>
-            <Grid size={{ xs: 12, sm: 6 }}>
+            <Grid size={{xs:12, sm:6}}>
               <TextField fullWidth label="Telefone/WhatsApp *" size="small" />
             </Grid>
             <Grid size={12}>
@@ -93,7 +103,7 @@ export default function ConsultaCEPForm() {
               <TextField
                 fullWidth
                 label="Endereço completo *"
-                defaultValue={`${dadosCep?.rua || ''}, ${dadosCep?.bairro || ''}`}
+                defaultValue={`${dadosCep?.rua ?? ''}, ${dadosCep?.bairro ?? ''}`}
                 size="small"
               />
             </Grid>
@@ -103,7 +113,7 @@ export default function ConsultaCEPForm() {
                 fullWidth
                 label="Plano de interesse"
                 size="small"
-                defaultValue=""
+                defaultValue={planoInteresse}
               >
                 {planos.map((plano, i) => (
                   <MenuItem key={i} value={plano.nome}>
@@ -121,12 +131,16 @@ export default function ConsultaCEPForm() {
                 size="small"
               />
             </Grid>
-
           </Grid>
           <Button
             fullWidth
             variant="contained"
-            sx={{ mt: 3, bgcolor: '#111', textTransform: 'none', '&:hover': { bgcolor: '#000' } }}
+            sx={{
+              mt: 3,
+              bgcolor: '#111',
+              textTransform: 'none',
+              '&:hover': { bgcolor: '#000' },
+            }}
           >
             Enviar Solicitação
           </Button>

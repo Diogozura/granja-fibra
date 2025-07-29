@@ -8,7 +8,7 @@ export default function CallToAction() {
 
   const handleWhatsappClick = () => {
     const msg = encodeURIComponent("Olá! Gostaria de falar com um consultor sobre os planos da Graja Fibra.");
-    window.open(`https://wa.me/5511999999999?text=${msg}`, '_blank');
+    window.open(`https://wa.me/558002950800?text=${msg}`, '_blank');
   };
 
   return (

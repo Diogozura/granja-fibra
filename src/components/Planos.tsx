@@ -13,51 +13,48 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 const planos = [
   {
-    nome: 'Essencial',
-    velocidade: '200 Mbps',
-    preco: 'R$ 49,90/mês',
-    precoOriginal: 'R$ 59,90',
+    promocao: 'Compre 150 MEGA',
+    preco: 'R$109,90/Mês',
+    destaque: false,
     beneficios: [
-      '200 Mbps de velocidade',
-      'Wi-Fi grátis',
       'Instalação gratuita',
-      'Suporte técnico',
+      'Mensalidade para 30 dias',
+      'Plano fibra óptica',
+      'Roteador incluso',
+      'Suporte todos os dias',
       'Sem fidelidade',
     ],
-    destaque: false,
   },
   {
-    nome: 'Essencial',
-    velocidade: '500 Mbps',
-    preco: 'R$ 79,90/mês',
-    precoOriginal: 'R$ 99,90',
+    promocao: 'Compre 250 MEGA',
+    preco: 'R$129,90/Mês',
+    destaque: false,
     beneficios: [
-      '500 Mbps de velocidade',
-      'Wi-Fi 6 grátis',
       'Instalação gratuita',
-      'Suporte 24h',
-      'Netflix incluso',
-      'Suporte técnico',
+      'Mensalidade para 30 dias',
+      'Plano fibra óptica',
+      'Roteador incluso',
+      'Suporte todos os dias',
       'Sem fidelidade',
     ],
-    destaque: true,
   },
   {
-    nome: 'Essencial',
-    velocidade: '200 Mbps',
-    preco: 'R$ 49,90/mês',
-    precoOriginal: 'R$ 50,90',
+    promocao: 'Compre 350 MEGA + REPETIDOR MESH 5G',
+    preco: 'R$159,90/Mês',
+    destaque: false,
     beneficios: [
-      '200 Mbps de velocidade',
-      'Wi-Fi grátis',
       'Instalação gratuita',
-      'Suporte técnico',
+      'Mensalidade para 30 dias',
+      'Plano fibra óptica',
+      'Roteador incluso',
+      'Repetidor 5G MESH incluso',
+      'Suporte todos os dias',
       'Sem fidelidade',
     ],
-    destaque: false,
   },
 ];
 interface Plano {
@@ -112,12 +109,14 @@ export default function Planos() {
                   position: 'relative',
                   p: 4,
                   height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between', // garante que botão vá pro final
                   borderRadius: 3,
                   bgcolor: 'white',
                   border: '1px solid #ddd',
-                 
                   backgroundOrigin: 'border-box',
-                  backgroundClip: 'padding-box, border-box' ,
+                  backgroundClip: 'padding-box, border-box',
                   transition: 'transform 0.3s ease',
                   '&:hover': {
                     transform: 'scale(1.03)',
@@ -144,23 +143,11 @@ export default function Planos() {
                   </Box>
                 )}
 
-                <Typography fontWeight={600} mb={1}>
-                  {plano.nome}
-                </Typography>
-                <Typography variant="h5" fontWeight={600}>
-                  {plano.velocidade} <Typography variant="caption">Mbps</Typography>
+                <Typography variant="h5" fontWeight={600} mb={1}>
+                  {plano.promocao}
                 </Typography>
 
-                <Typography variant="h6" mt={1} fontWeight={600}>
-                  {plano.preco}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  sx={{ textDecoration: 'line-through' }}
-                >
-                  De {plano.precoOriginal}
-                </Typography>
+
 
                 <Stack spacing={1.5} mt={3} mb={4}>
                   {plano.beneficios.map((beneficio, idx) => (
@@ -170,21 +157,27 @@ export default function Planos() {
                     </Box>
                   ))}
                 </Stack>
+                <Typography variant="h6" mt={1} fontWeight={600}>
+                  {plano.preco}
+                </Typography>
+                <Link href={`/assinar`} passHref>
+                  <Button
 
-                <Button
-                  fullWidth
-                  variant="contained"
-                  sx={{
-                    bgcolor: '#111',
-                    color: 'white',
-                    textTransform: 'none',
-                    '&:hover': {
-                      bgcolor: '#000',
-                    },
-                  }}
-                >
-                  Assinar Agora
-                </Button>
+                    fullWidth
+                    variant="contained"
+                    sx={{
+                      bgcolor: '#111',
+                      color: 'white',
+                      textTransform: 'none',
+                      '&:hover': {
+                        bgcolor: '#000',
+                      },
+                    }}
+                  >
+
+                    Assinar já
+                  </Button>
+                </Link>
               </Paper>
             );
 
@@ -203,14 +196,14 @@ export default function Planos() {
           })}
         </Grid>
 
-        <Box mt={6} textAlign="center">
+        {/* <Box mt={6} textAlign="center">
           <Typography variant="body2" mb={0.5}>
             🎉 <strong>Oferta especial:</strong> 3 meses de desconto para novos clientes
           </Typography>
           <Typography variant="caption" color="text.secondary">
             *Valores promocionais válidos por tempo limitado. Consulte condições.
           </Typography>
-        </Box>
+        </Box> */}
       </Container>
     </Box>
   );

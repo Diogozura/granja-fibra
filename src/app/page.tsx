@@ -1,6 +1,6 @@
 // src/app/page.tsx
 'use client';
-import Head from 'next/head';
+
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 
@@ -17,10 +17,10 @@ const FaleConosco = dynamic(() => import('@/components/FaleConosco'), {
 export default function Home() {
   return (
     <>
-      <Head>
+      <head>
         <title>Graja fibra - provedor de internet</title>
         <meta name="description" content="Provedor de Internet Granja fibra A Melhor Internet você encontra aqui Contamos com diversos planos, atendimento de qualidade e tecnologia de ponta para levar a melhor conexão até você!" />
-      </Head>
+      </head>
       <Hero />
       <Ofertas />
       <Beneficios />

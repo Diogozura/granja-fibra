@@ -1,7 +1,7 @@
 'use client';
 
 import { Button, Container, Divider, Typography } from "@mui/material";
-import Head from "next/head";
+import head from "next/head";
 import { useRouter } from "next/navigation";
 
 
@@ -10,9 +10,9 @@ export default function PoliticaPrivacidade() {
     const router = useRouter();
     return (
         <>
-            <Head>
+            <head>
                 <title>Politica de privacidade - Graja fibra</title>
-            </Head>
+            </head>
             <Container maxWidth="md" sx={{ py: 6 }}>
                 <Typography variant="h4" gutterBottom fontWeight="bold">
                     Política de Privacidade

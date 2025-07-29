@@ -20,12 +20,13 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 const navItems = [
-  { title: 'Início', link: '/' },
-  { title: 'Sobre', link: '/sobre-nos' },
-  { title: 'Planos', link: '/planos' },
-  { title: 'Ofertas', link: '/ofertas' },
-  { title: 'Contato', link: '/contato' },
-  { title: 'Faq', link: '/faq' },
+  { title: 'Home', link: '/' },
+  { title: 'Sobre nós', link: '/sobre-nos' },
+  { title: 'Nossos planos', link: '/planos' },
+  { title: 'Promoções', link: '/promocoes' },
+  { title: 'Graja Vantagens', link: 'https://grajavantagens.partiu.com.br/' },
+  { title: 'Graja Livros', link: 'https://grajalivros.ebooks.app.br/login' },
+  { title: 'Graja Revistas', link: 'https://grajarevistas.ebooks.app.br/login' },
 ];
 
 export default function Header() {
@@ -76,21 +77,7 @@ export default function Header() {
             ))}
 
 
-            <Button
-              component={Link}
-              href="/contato"
-              variant="contained"
-              sx={{
-                borderRadius: 2,
-                textTransform: 'none',
-                px: 3,
-                bgcolor: 'primary.main',
-                '&:hover': { bgcolor: 'primary.dark' },
-              }}
-            >
-              Contrate Agora
-            </Button>
-
+          
           </Box>
 
           {/* Botão Hamburguer */}

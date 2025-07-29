@@ -14,35 +14,21 @@ import { motion } from 'framer-motion';
 
 const beneficios = [
   {
-    titulo: 'Velocidade Ultra Rápida',
-    descricao: 'Até 1000 Mbps de velocidade real, não apenas teórica. Perfeito para streaming 4K, jogos online e trabalho remoto.',
+    titulo: 'Internet ultraveloz',
+    descricao: 'Contamos com uma internet fibra óptica com ultravelocidade para levar a melhor experiência para nossos clientes.',
     icon: faBolt,
   },
   {
-    titulo: '99.9% de Estabilidade',
-    descricao: 'Nossa rede de fibra ótica garante conexão estável e confiável, sem quedas ou instabilidade.',
-    icon: faShieldAlt,
-  },
-  {
-    titulo: 'Instalação Rápida',
-    descricao: 'Instalação gratuita em até 48 horas. Nossa equipe técnica especializada cuida de tudo para você.',
-    icon: faClock,
-  },
-  {
-    titulo: 'Suporte 24/7',
-    descricao: 'Atendimento especializado disponível 24 horas por dia, 7 dias da semana para resolver qualquer problema.',
-    icon: faHeadset,
-  },
-  {
-    titulo: 'Wi-Fi 6 Incluso',
-    descricao: 'Roteador Wi-Fi 6 de última geração incluso no plano, garantindo cobertura total da sua casa.',
+    titulo: 'Wi-fi Premium',
+    descricao: 'Nossos planos contam com wi-fi premium a fim de levar uma conexão em longo alcance sem perca de qualidade para você!',
     icon: faWifi,
   },
   {
-    titulo: 'Para Toda Família',
-    descricao: 'Internet sem limite de dispositivos conectados. Toda a família pode usar simultaneamente sem perda de qualidade.',
-    icon: faUsers,
+    titulo: 'Suporte todos os dias',
+    descricao: 'A Graja Fibra possuí uma equipe de suporte especializada para te ajudar sempre que necessário.',
+    icon: faHeadset,
   },
+
 ];
 
 export default function Beneficios() {
@@ -71,7 +57,7 @@ export default function Beneficios() {
 
         <Grid container spacing={3}>
           {beneficios.map((item, index) => (
-            <Grid size={{xs:12, sm:6, md:4}}  key={index}>
+            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}

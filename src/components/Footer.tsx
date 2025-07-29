@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import empresa from '@/data/empresa.json'; // <-- importando os dados
-import planosFooter from '@/data/planosFooter.json'; // <-- importando os dados
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 const linksUteis = [
@@ -35,41 +34,40 @@ const Footer = () => {
   const enderecoCompleto = `${empresa.endereco.logradouro}, ${empresa.endereco.numero} – ${empresa.endereco.complemento}
 ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.estado}`;
 
-  const { planos } = planosFooter;
+
 
   return (
     <Box sx={{ bgcolor: 'secondary.main', color: 'white', pt: 8, pb: 4 }}>
       <Container maxWidth="lg">
-        <Grid container spacing={4}>
+        <Grid container spacing={4} justifyContent={'space-between'}>
           {/* Logo + texto */}
           <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Image src="/logo-granja-fibra.png" width={200} height={48} alt="logo" />
             <Typography variant="body2" mt={2} mb={2} color="grey.400">
               A melhor internet fibra ótica da região. Conectando você ao futuro com velocidade e qualidade.
             </Typography>
-            <Typography variant="caption" display="block" color="grey.600">
+            <Typography variant="caption" display="block" color="grey.600" mb={2}>
               {empresa.nomeEmpresa}
               <br />
               CNPJ {empresa.cnpj}
               <br />
               Licença da Anatel - Processo 53500.101370/2024-74
             </Typography>
+            <Box
+              
+              component={'a'}
+              href='https://www.reclameaqui.com.br/empresa/graja-fibra'
+            >
+              <Image
+                src="/reclame-aqui-barra.webp"
+                alt="Empresa verificada Reclame Aqui"
+                width={250}
+                height={61}
+              />
+            </Box>
           </Grid>
 
-          {/* Planos */}
-          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-            <Typography fontWeight={600} mb={2}>
-              Nossos Planos
-            </Typography>
-            <Stack spacing={1}>
-              {planos.map((plano) => (
-                <Typography key={plano.nome} variant="body2">
-                  {plano.nome} – <strong>{plano.velocidade}</strong>
-                </Typography>
-              ))}
-            </Stack>
-          </Grid>
-
+          
           {/* Links Úteis */}
           <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Typography fontWeight={600} mb={2}>
@@ -109,22 +107,23 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.es
               <Box display="flex" alignItems="flex-start" gap={1}>
                 <FontAwesomeIcon icon={faMapMarkerAlt} style={{ marginTop: 4 }} />
                 <Typography variant="body2">
-                  <Link href={empresa.endereco.link}  underline="hover"
-                  color="grey.300">{enderecoCompleto}</Link>
+                  <Link href={empresa.endereco.link} underline="hover"
+                    color="grey.300">{enderecoCompleto}</Link>
                 </Typography>
               </Box>
               <Box display="flex" alignItems="flex-start" gap={1}>
                 <Link href='https://www.facebook.com/people/Graja-Fibra/61577130784161/'>
-                  <FontAwesomeIcon icon={faFacebook}  color='#fff' style={{ marginTop: 4 }} />
+                  <FontAwesomeIcon icon={faFacebook} color='#fff' style={{ marginTop: 4 }} />
                 </Link>
                 <Link href='https://www.instagram.com/grajafibra/'>
-                  <FontAwesomeIcon icon={faInstagram}  color='#fff' style={{ marginTop: 4 }} />
+                  <FontAwesomeIcon icon={faInstagram} color='#fff' style={{ marginTop: 4 }} />
                 </Link>
                 <Link href='https://api.whatsapp.com/send/?phone=558002950800&text=Ol%C3%A1%2C+tenho+algumas+d%C3%BAvidas+referente+a+Internet+da+Graja%25Fibra&type=phone_number&app_absent=0'>
-                  <FontAwesomeIcon icon={faWhatsapp}  color='#fff' style={{ marginTop: 4 }} />
+                  <FontAwesomeIcon icon={faWhatsapp} color='#fff' style={{ marginTop: 4 }} />
                 </Link>
               </Box>
             </Stack>
+
           </Grid>
         </Grid>
 

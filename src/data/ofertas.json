@@ -1,44 +1,49 @@
 [
-  {
-    "icone": "fa-star",
-    "categoria": "Promoção",
-    "titulo": "Mega promoção",
-    "destaque": "50% OFF nos 3 primeiros meses",
-    "descricao": "Desconto especial para novos clientes em todos os planos",
+ {
+    "promocao": "Compre 250 MEGA e receba 500 MEGA ",
     "beneficios": [
-      "Todos os planos",
-      "Wi-Fi 6 incluso",
-      "Instalação grátis",
+      "Instalação gratuita **",
+      "Mensalidade para 30 dias",
+      "Plano fibra óptica",
+      "Roteador 5G incluso",
+      "Suporte todos os dias",
+      "Graja Vantagens",
+      "Graja Livros",
+      "Graja Revistas",
       "Sem fidelidade"
     ],
-    "link": "/contato"
+    "preco": "R$ 99,90/Mês ***"
   },
   {
-    "icone": "fa-star",
-    "categoria": "Promoção",
-    "titulo": "Mega promoção",
-    "destaque": "50% OFF nos 3 primeiros meses",
-    "descricao": "Desconto especial para novos clientes em todos os planos",
+    "promocao": "Compre 350 MEGA e receba 700 MEGA ",
     "beneficios": [
-      "Todos os planos",
-      "Wi-Fi 6 incluso",
-      "Instalação grátis",
+      "Instalação gratuita **",
+      "Mensalidade para 30 dias",
+      "Plano fibra óptica",
+      "Roteador 5G incluso",
+      "Suporte todos os dias",
+      "Graja Vantagens",
+      "Graja Livros",
+      "Graja Revistas",
       "Sem fidelidade"
     ],
-    "link": "/contato"
+    "preco": "R$ 99,90/Mês ***"
   },
+  
   {
-    "icone": "fa-star",
-    "categoria": "Promoção",
-    "titulo": "Mega promoção",
-    "destaque": "50% OFF nos 3 primeiros meses",
-    "descricao": "Desconto especial para novos clientes em todos os planos",
+    "promocao": "Compre 350 MEGA e receba 750 MEGA + REPETIDOR 5G MESh *",
     "beneficios": [
-      "Todos os planos",
-      "Wi-Fi 6 incluso",
-      "Instalação grátis",
+      "Instalação gratuita **",
+      "Mensalidade para 30 dias",
+      "Plano fibra óptica",
+      "Roteador 5G incluso",
+      "Repetidor MESH 5G incluso",
+      "Suporte todos os dias",
+      "Graja Vantagens",
+      "Graja Livros",
+      "Graja Revistas",
       "Sem fidelidade"
     ],
-    "link": "/contato"
+    "preco": "R$ 99,90/Mês ***"
   }
 ]

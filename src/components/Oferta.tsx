@@ -30,8 +30,8 @@ function Ofertas() {
         <Grid container spacing={3} justifyContent="center">
           {ofertas.map((oferta, i) => (
             <Grid
-              size={{xs:12, md:4}}
-             
+              size={{ xs: 12, md: 4 }}
+
               key={i}
               component={motion.div}
               initial={{ opacity: 0, y: 40 }}
@@ -53,7 +53,7 @@ function Ofertas() {
               >
                 <CardContent sx={{ textAlign: 'center' }}>
                   <Chip
-                    label={oferta.categoria}
+                    label='OFERTA'
                     avatar={
                       <Avatar sx={{ bgcolor: 'transparent' }}>
                         <Image
@@ -95,15 +95,10 @@ function Ofertas() {
                     />
                   </Box>
 
-                  <Typography variant="subtitle2" fontWeight={600} component="h2">
-                    {oferta.titulo}
-                  </Typography>
                   <Typography variant="h6" fontWeight={700}>
-                    {oferta.destaque}
+                    {oferta.promocao}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary" mb={2}>
-                    {oferta.descricao}
-                  </Typography>
+
 
                   <List dense>
                     {oferta.beneficios.map((beneficio, j) => (
@@ -115,14 +110,16 @@ function Ofertas() {
                       </ListItem>
                     ))}
                   </List>
-
-                  <Link href={`/contato?plano=${encodeURIComponent(oferta.titulo)}`} passHref>
+                  <Typography variant="body2" color="text.secondary" mb={2}>
+                    {oferta.preco}
+                  </Typography>
+                  <Link href={`/assinar`} passHref>
                     <Button
                       fullWidth
                       variant="contained"
                       sx={{ mt: 2, bgcolor: 'black', color: 'white' }}
                     >
-                      Aproveitar agora
+                      Assine já
                     </Button>
                   </Link>
                 </CardContent>

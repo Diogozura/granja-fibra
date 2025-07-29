@@ -2,7 +2,7 @@
 
 import { Container, Typography } from "@mui/material";
 import dynamic from 'next/dynamic';
-import Head from "next/head";
+import head from "next/head";
 import { Suspense } from "react";
 
 const FaleConosco = dynamic(() => import('@/components/FaleConosco'), {
@@ -14,10 +14,10 @@ const Ofertas = dynamic(() => import('@/components/Oferta'));
 export default function OfertasEmpresa() {
     return (
         <>
-            <Head>
+            <head>
                 <title>Nossas ofertas - Graja fibra</title>
                 <meta name="description" content="Provedor de Internet Granja fibra A Melhor Internet você encontra aqui Contamos com diversos planos, atendimento de qualidade e tecnologia de ponta para levar a melhor conexão até você!" />
-            </Head>
+            </head>
             <Container maxWidth="lg" sx={{ py: 10 }}>
                 {/* Título principal */}
 

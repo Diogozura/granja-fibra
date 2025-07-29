@@ -134,7 +134,7 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade}`;
               sx={{ p: 4, borderRadius: 3 }}
             >
               <Typography variant="h6" fontWeight={600} color="primary" gutterBottom>
-                Solicite sua instalação
+               Entre em contato
               </Typography>
               <ConsultaCEPForm planoInteresse={planoInteresse}/>
               <Typography variant="caption" color="text.secondary" mt={1} display="block" align="center">

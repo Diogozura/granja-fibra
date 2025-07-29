@@ -1,130 +1,239 @@
 'use client';
 
-import { Box, Button, Grid, Typography, Paper, useTheme } from '@mui/material';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBolt, faShieldAlt, faClock } from '@fortawesome/free-solid-svg-icons';
+import { Box, Button, Typography, Container } from '@mui/material';
+import Image from 'next/image';
 
 export default function Hero() {
-  const theme = useTheme();
-
-  const scrollToId = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <Box px={{ xs: 2, md: 1 }} py={{ xs: 6, md: 10 }} maxWidth="lg" mx="auto">
-      <Grid container spacing={6} alignItems="center">
-        {/* Conteúdo à esquerda */}
-        <Grid size={{xs:12, md:7}}>
-      
-            <Typography variant="h2" component="h1" fontWeight={600} color="primary" gutterBottom>
-              Internet Fibra Ótica Ultra Rápida
-            </Typography>
-            <Typography variant="body1" color="text.secondary" paragraph>
-              Conecte-se ao futuro com nossa internet fibra ótica de alta velocidade. Planos a partir de R$ 79,90/mês com instalação gratuita.
-            </Typography>
+    <>
+      <Box
+        sx={{
+          position: 'relative',
+          width: '100%',
+          height: { xs: 'auto', md: '80vh' },
+          bgcolor: '#000',
+          display: { xs: 'none', md: 'flex' },
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          overflow: 'hidden',
+          px: 2,
+        }}
+      >
+        {/* FUNDO DE IMAGEM À DIREITA */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            right: 0,
+            bottom: 0,
+            width: '60%',
+            zIndex: 0,
+            overflow: 'hidden',
+          }}
+        >
+          <Image
+            src="/hero-image-familia.png"
+            alt="Família feliz"
+            fill
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'center right',
+              filter: 'brightness(0.9)',
+            }}
+          />
+          {/* Degradê da esquerda pra direita */}
+          <Box
+            sx={{
+              position: 'absolute',
+              inset: 0,
+              background: 'linear-gradient(to left, rgba(0,0,0,0.8), transparent)',
+            }}
+          />
+        </Box>
 
-            <Box mt={3} display="flex" gap={2} flexWrap="wrap">
-              <Button
-                variant="contained"
-                size="large"
-                sx={{ bgcolor: '#111', '&:hover': { bgcolor: '#000' } }}
-                onClick={() => scrollToId('planos')}
-              >
-                Ver Planos →
-              </Button>
-              <Button
-                variant="outlined"
-                size="large"
-                onClick={() => scrollToId('fale-conosco')}
-                sx={{
-                  borderColor: theme.palette.primary.main,
-                  color: theme.palette.primary.main,
-                  '&:hover': {
-                    borderColor: theme.palette.primary.dark,
-                    color: theme.palette.primary.dark,
-                  },
-                }}
-              >
-                Fale Conosco
-              </Button>
-            </Box>
-
-            {/* Ícones */}
-            <Box mt={6} display="flex" gap={6} flexWrap="wrap">
-              {[
-                { icon: faBolt, label: 'Mbps', value: '1000+' },
-                { icon: faShieldAlt, label: 'Estabilidade', value: '99.9%' },
-                { icon: faClock, label: 'Suporte', value: '24h' },
-              ].map(({ icon, label, value }) => (
-                <Box key={label} textAlign="center">
-                  <FontAwesomeIcon icon={icon} size="2x" aria-label={label} />
-                  <Typography fontWeight={600} color="primary" mt={1}>
-                    {value}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {label}
-                  </Typography>
-                </Box>
-              ))}
-            </Box>
-         
-        </Grid>
-
-        {/* Card de Cobertura Total */}
-        <Grid size={{xs:12, md:5}} >
-        
-            <Paper
-              elevation={0}
+        {/* CONTEÚDO POR CIMA */}
+        <Container
+          maxWidth="lg"
+          sx={{
+            position: 'relative',
+            zIndex: 2,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            height: '100%',
+          }}
+        >
+          <Box maxWidth={460}>
+            {/* CARD */}
+            <Box
               sx={{
-                bgcolor: 'secondary.main',
-                color: '#fff',
+                display: 'flex',
                 borderRadius: 3,
-                p: 4,
+                overflow: 'hidden',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.6)',
               }}
             >
-              <Typography variant="h6" color="#fff" fontWeight={600} gutterBottom>
-                Cobertura Total
-              </Typography>
-              <Typography variant="body2" mb={3}>
-                Nossa rede de fibra ótica cobre toda a região, levando internet de alta qualidade até sua casa ou empresa.
-              </Typography>
-
-              <Box display="flex" gap={2}>
-                <Box
-                  sx={{
-                    flex: 1,
-                    bgcolor: '#1a1a1a',
-                    borderRadius: 2,
-                    p: 2,
-                    textAlign: 'center',
-                  }}
-                >
-                  <Typography variant="h6" fontWeight={600}>
-                    15+
+              {/* LADO ESQUERDO - PRETO */}
+              <Box
+                sx={{
+                  bgcolor: '#000',
+                  color: '#fff',
+                  p: 3,
+                  flex: 1,
+                  textAlign: 'left',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  gap: 1,
+                  borderRight: '1px solid #444',
+                }}
+              >
+                <Typography fontSize="0.85rem" fontWeight={600}>
+                  PLANOS DE
+                </Typography>
+                <Typography variant="h5" fontWeight={900}>
+                  250 MEGA
+                </Typography>
+                <Box mt={2}>
+                  <Typography fontSize="0.85rem" fontWeight={600}>
+                    ATÉ
                   </Typography>
-                  <Typography variant="body2">Cidades Atendidas</Typography>
-                </Box>
-                <Box
-                  sx={{
-                    flex: 1,
-                    bgcolor: '#1a1a1a',
-                    borderRadius: 2,
-                    p: 2,
-                    textAlign: 'center',
-                  }}
-                >
-                  <Typography variant="h6" fontWeight={600}>
-                    50k+
+                  <Typography variant="h5" fontWeight={900}>
+                    750 MEGA
                   </Typography>
-                  <Typography variant="body2">Clientes Satisfeitos</Typography>
+                  <Typography fontSize="0.85rem">DE VELOCIDADE</Typography>
                 </Box>
               </Box>
-            </Paper>
-          
-        </Grid>
-      </Grid>
-    </Box>
+
+              {/* LADO DIREITO - BRANCO */}
+              <Box
+                sx={{
+                  bgcolor: '#fff',
+                  color: '#000',
+                  p: 3,
+                  flex: 1.2,
+                  textAlign: 'center',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                }}
+              >
+                <Typography fontSize="0.85rem" fontWeight={600}>
+                  A PARTIR DE
+                </Typography>
+                <Typography variant="h4" fontWeight={900}>
+                  R$ 99<small>,90</small>
+                </Typography>
+                <Typography variant="caption">
+                  APÓS 3 MESES/ R$120,90
+                </Typography>
+              </Box>
+            </Box>
+
+            {/* BOTÃO */}
+            <Box mt={3}>
+              <Button
+                variant="contained"
+                fullWidth
+                sx={{
+                  bgcolor: '#fff',
+                  color: '#000',
+                  fontWeight: 700,
+                  py: 1.5,
+                  borderRadius: 2,
+                  '&:hover': {
+                    bgcolor: '#e0e0e0',
+                  },
+                }}
+                onClick={() => window.location.href = '/contato'}
+              >
+                ASSINE JÁ
+              </Button>
+            </Box>
+          </Box>
+        </Container>
+      </Box>
+      <Box sx={{
+        background: '#000',
+        p:2
+      }}>
+        <Box
+          sx={{
+            display: { xs: 'flex', md: 'none' },
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            textAlign: 'center',
+            pt: 4,
+          }}
+        >
+          <Image
+            src="/hero-image-familia.png"
+            alt="Família feliz"
+            width={300}
+            height={300}
+            style={{
+              borderRadius: '20px',
+              objectFit: 'cover',
+              boxShadow: '0 6px 20px rgba(0,0,0,0.5)',
+            }}
+          />
+
+          <Box
+            sx={{
+              mt: 3,
+              bgcolor: '#fff',
+              borderRadius: 2,
+              p: 2,
+              width: '90%',
+              maxWidth: 360,
+              boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+            }}
+          >
+            <Typography fontSize="0.9rem" fontWeight={600} color="text.secondary">
+              PLANOS DE
+            </Typography>
+            <Typography variant="h5" fontWeight={900}>
+              250 MEGA
+            </Typography>
+            <Typography fontSize="0.9rem" fontWeight={600} color="text.secondary" mt={1}>
+              ATÉ 750 MEGA DE VELOCIDADE
+            </Typography>
+            <Typography fontSize="0.9rem" fontWeight={600} color="text.secondary" mt={2}>
+              A PARTIR DE
+            </Typography>
+            <Typography variant="h4" fontWeight={900}>
+              R$ 99<small>,90</small>
+            </Typography>
+            <Typography variant="caption" color="text.secondary">
+              APÓS 3 MESES/ R$120,90
+            </Typography>
+          </Box>
+
+          <Button
+            variant="contained"
+            fullWidth
+            sx={{
+              mt: 3,
+              bgcolor: '#fff',
+              color: '#000',
+              fontWeight: 700,
+              py: 1.5,
+              borderRadius: 2,
+              maxWidth: 360,
+              '&:hover': {
+                bgcolor: '#e0e0e0',
+              },
+            }}
+            onClick={() => window.location.href = '/assinar'}
+          >
+            ASSINE JÁ
+          </Button>
+        </Box>
+      </Box>
+
+    </>
+
   );
 }

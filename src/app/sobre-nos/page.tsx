@@ -3,7 +3,7 @@
 import { Container, Typography, Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
+import head from 'next/head';
 
 const Valores = dynamic(() => import('./Valores'));
 
@@ -11,10 +11,10 @@ export default function Sobre() {
     return (
 
         <>
-            <Head>
+            <head>
                 <title>Sobre nós - graja fibra </title>
                 <meta name="description" content="Provedor de Internet Granja fibra A Melhor Internet você encontra aqui Contamos com diversos planos, atendimento de qualidade e tecnologia de ponta para levar a melhor conexão até você!" />
-            </Head>
+            </head>
             <Container maxWidth="lg" sx={{ py: 10 }}>
                 {/* Título principal */}
                 

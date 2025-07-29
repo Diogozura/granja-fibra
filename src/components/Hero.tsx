@@ -154,41 +154,56 @@ export default function Hero() {
           </Box>
         </Container>
       </Box>
-      <Box sx={{
-        background: '#000',
-        p:2
-      }}>
+      <Box
+        sx={{
+          position: 'relative',
+          height: 500,
+          display: { xs: 'block', md: 'none' },
+          overflow: 'hidden',
+          backgroundColor: '#000',
+        }}
+      >
+        {/* Imagem de fundo */}
+        <Image
+          src="/hero-image-familia.png"
+          alt="Família feliz"
+          fill
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'center',
+            filter: 'brightness(0.7)',
+          }}
+        />
+
+        {/* Degradê por cima */}
         <Box
           sx={{
-            display: { xs: 'flex', md: 'none' },
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2))',
+          }}
+        />
+
+        {/* Conteúdo centralizado */}
+        <Box
+          sx={{
+            position: 'absolute',
+            zIndex: 2,
+            top: '65%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '90%',
+            maxWidth: 360,
             textAlign: 'center',
-            pt: 4,
           }}
         >
-          <Image
-            src="/hero-image-familia.png"
-            alt="Família feliz"
-            width={300}
-            height={300}
-            style={{
-              borderRadius: '20px',
-              objectFit: 'cover',
-              boxShadow: '0 6px 20px rgba(0,0,0,0.5)',
-            }}
-          />
-
           <Box
             sx={{
-              mt: 3,
               bgcolor: '#fff',
-              borderRadius: 2,
-              p: 2,
-              width: '90%',
-              maxWidth: 360,
-              boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+              borderRadius: 3,
+              px: 3,
+              py: 4,
+              boxShadow: '0 6px 20px rgba(0,0,0,0.3)',
             }}
           >
             <Typography fontSize="0.9rem" fontWeight={600} color="text.secondary">
@@ -215,15 +230,14 @@ export default function Hero() {
             variant="contained"
             fullWidth
             sx={{
-              mt: 3,
+              mt: 2,
               bgcolor: '#fff',
               color: '#000',
               fontWeight: 700,
               py: 1.5,
               borderRadius: 2,
-              maxWidth: 360,
               '&:hover': {
-                bgcolor: '#e0e0e0',
+                bgcolor: '#eee',
               },
             }}
             onClick={() => window.location.href = '/assinar'}
@@ -232,6 +246,8 @@ export default function Hero() {
           </Button>
         </Box>
       </Box>
+
+
 
     </>
 

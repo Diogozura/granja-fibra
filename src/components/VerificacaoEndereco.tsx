@@ -53,7 +53,7 @@ export default function VerificacaoEndereco() {
       numero,
     };
 
-    const res = await fetch('https://seudominio.com/salvarLead.php', {
+    const res = await fetch('http://localhost/sistema_avaliacoes/salvarLead.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -105,9 +105,6 @@ export default function VerificacaoEndereco() {
       {/* Passo 2: Formulário se positivo */}
       {liberarFormulario && (
         <Box mt={4}>
-          <Typography variant="h6" mb={2}>
-            Se positiva
-          </Typography>
           <TextField
             label="Qual seu nome?"
             fullWidth

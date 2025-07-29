@@ -146,7 +146,7 @@ export default function Hero() {
                     bgcolor: '#e0e0e0',
                   },
                 }}
-                onClick={() => window.location.href = '/contato'}
+                onClick={() => window.location.href = '/assinar'}
               >
                 ASSINE JÁ
               </Button>

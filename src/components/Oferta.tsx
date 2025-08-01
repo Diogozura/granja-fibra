@@ -26,11 +26,11 @@ function Ofertas() {
   const [ofertas, setOfertas] = useState<Ofertas[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost/sistema_avaliacoes/dados.php')
+    fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/dados.php')
       .then((res) => res.json())
       .then((data) => setOfertas(data.ofertas));
   }, []);
-  console.log('planos', ofertas)
+
 
   return (
     <Container maxWidth="lg">

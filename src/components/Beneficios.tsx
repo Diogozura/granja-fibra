@@ -4,11 +4,8 @@ import { Box, Container, Grid, Typography, Paper } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBolt,
-  faShieldAlt,
-  faClock,
   faHeadset,
   faWifi,
-  faUsers,
 } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 

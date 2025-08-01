@@ -29,7 +29,7 @@ export default function VerificacaoEndereco() {
     }
     try {
       const res = await fetch(
-        `http://localhost/sistema_avaliacoes/consultaCep.php?cep=${cepLimpo}`
+        `https://qrcode.grajafibra.inf.br/sistema_avaliacoes/consultaCep.php?cep=${cepLimpo}`
       );
       const data = await res.json();
 
@@ -53,7 +53,7 @@ export default function VerificacaoEndereco() {
       numero,
     };
 
-    const res = await fetch('http://localhost/sistema_avaliacoes/salvarLead.php', {
+    const res = await fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/salvarLead.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

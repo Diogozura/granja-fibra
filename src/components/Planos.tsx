@@ -30,11 +30,10 @@ export default function Planos() {
   const [planos, setPlanos] = useState<Plano[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost/sistema_avaliacoes/dados.php')
+    fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/dados.php')
       .then((res) => res.json())
       .then((data) => setPlanos(data.planos));
   }, []);
-  console.log('planos', planos)
   return (
     <Box py={10} sx={{ background: '#F5F6FA' }} id='planos'>
       <Container maxWidth="lg">

@@ -53,13 +53,29 @@ export default function Header() {
             </Link>
           </ListItem>
         ))}
+
       </List>
+      <Button
+        component={Link}
+        href="https://central.lewm.com.br/central_assinante_web/login"
+        variant="contained"
+        sx={{
+          borderRadius: 2,
+          textTransform: 'none',
+          px: 3,
+          color: '#000',
+          bgcolor: '#fff',
+          '&:hover': { bgcolor: '#ffffffd3' },
+        }}
+      >
+        Central assinante
+      </Button>
     </Box>
   );
 
   return (
     <>
-      <AppBar position="static" color="secondary" elevation={0}>
+      <AppBar position="sticky" color="secondary" elevation={0}>
         <Toolbar sx={{ justifyContent: 'space-between', py: 2 }}>
           {/* Logo */}
           <Box display="flex" alignItems="center">
@@ -77,7 +93,21 @@ export default function Header() {
             ))}
 
 
-          
+            <Button
+              component={Link}
+              href="https://central.lewm.com.br/central_assinante_web/login"
+              variant="contained"
+              sx={{
+                borderRadius: 2,
+                textTransform: 'none',
+                px: 3,
+                color: '#000',
+                bgcolor: '#fff',
+                '&:hover': { bgcolor: '#ffffffd3' },
+              }}
+            >
+              Central assinante
+            </Button>
           </Box>
 
           {/* Botão Hamburguer */}

@@ -12,6 +12,8 @@ export default function PoliticaPrivacidade() {
         <>
             <head>
                 <title>Politica de privacidade - Graja fibra</title>
+                <meta name="description" content="Provedor de Internet Granja fibra A Melhor Internet você encontra aqui Contamos com diversos planos, atendimento de qualidade e tecnologia de ponta para levar a melhor conexão até você!" />
+
             </head>
             <Container maxWidth="md" sx={{ py: 6 }}>
                 <Typography variant="h4" gutterBottom fontWeight="bold">

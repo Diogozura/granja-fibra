@@ -11,6 +11,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import BottomBar from '@/components/BottomBar';
+import Head from './head';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -19,16 +20,20 @@ const inter = Inter({
 });
 config.autoAddCss = false;
 
+
+
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" className={inter.className}>
+      <Head />
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Header />
           {children}
           <CookieBanner />
-          <BottomBar/>
+          <BottomBar />
           <Footer />
         </ThemeProvider>
       </body>

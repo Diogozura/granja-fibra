@@ -23,13 +23,10 @@ import {
 import empresa from '@/data/empresa.json'; // <-- importando os dados
 
 import dynamic from 'next/dynamic';
-import { useSearchParams } from 'next/navigation';
 
-const ConsultaCEPForm = dynamic(() => import('@/components/ConsultaCEPForm'));
+const FormContato = dynamic(() => import('@/components/FormContato'));
 
 export default function FaleConosco() {
-  const searchParams = useSearchParams();
-  const planoInteresse = searchParams?.get('plano') ?? '';
   const enderecoCompleto = `${empresa.endereco.logradouro}, ${empresa.endereco.numero} – ${empresa.endereco.complemento}
 ${empresa.endereco.bairro}, ${empresa.endereco.cidade}`;
 
@@ -136,7 +133,7 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade}`;
               <Typography variant="h6" fontWeight={600} color="primary" gutterBottom>
                Entre em contato
               </Typography>
-              <ConsultaCEPForm planoInteresse={planoInteresse}/>
+              <FormContato />
               <Typography variant="caption" color="text.secondary" mt={1} display="block" align="center">
                 * Campos obrigatórios – Resposta em até 2 horas úteis
               </Typography>

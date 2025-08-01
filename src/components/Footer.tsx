@@ -9,24 +9,24 @@ import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-sv
 
 const linksUteis = [
   {
-    title: 'Faq',
-    link: '/faq'
+    title: 'Graja Vantagens',
+    link: 'https://grajavantagens.partiu.com.br/' 
+  },
+  {
+    title: 'Graja Livros',
+    link: 'https://grajalivros.ebooks.app.br/login'
+  },
+  {
+    title: 'Graja Revistas',
+    link: 'https://grajarevistas.ebooks.app.br/login'
+  },
+  {
+    title: 'Contato Central do Cliente',
+    link: 'https://central.lewm.com.br/central_assinante_web/login'
   },
   {
     title: 'Contato',
     link: '/contato'
-  },
-  {
-    title: 'Benefícios',
-    link: '/benefícios'
-  },
-  {
-    title: 'Contato Central do Cliente',
-    link: '/whatsp'
-  },
-  {
-    title: 'Área de Cobertura',
-    link: '/area-cobertura'
   },
 ];
 

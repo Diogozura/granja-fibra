@@ -4,25 +4,26 @@ import { Box, Container, Grid, Typography, Paper } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const depoimentos = [
   {
-    nome: 'Maria Silva',
-    bairro: 'Centro',
+    nome: 'Vivaldo Fernandes',
+   
     mensagem:
-      'Melhor internet que já tive! Trabalho home office e nunca tive problemas. A velocidade é exatamente como prometido.',
+      'Internet muito boa,suporte também ligou pros caras os caras estão no seu portão no mesmo dia,super recomendo Internet de qualidade...',
   },
   {
-    nome: 'Maria Silva',
-    bairro: 'Centro',
+    nome: 'Gustavo Souza Lomba',
+    
     mensagem:
-      'Melhor internet que já tive! Trabalho home office e nunca tive problemas. A velocidade é exatamente como prometido.',
+      'Tive ótimas experiências com esta internet, não me arrependo e o serviço entrega o que promete.Sempre recomendo aos amigos',
   },
   {
-    nome: 'Maria Silva',
-    bairro: 'Centro',
+    nome: 'Ana Clara Inocencio Ferreira',
+    
     mensagem:
-      'Melhor internet que já tive! Trabalho home office e nunca tive problemas. A velocidade é exatamente como prometido.',
+      'Serviço de qualidade ótima, minha experiência está sendo uma das melhores até hoje, recomendo!',
   },
 ];
 
@@ -84,9 +85,7 @@ export default function Depoimentos() {
                     “{d.mensagem}”
                   </Typography>
                   <Typography fontWeight={600}>{d.nome}</Typography>
-                  <Typography variant="caption" color="text.secondary">
-                    • {d.bairro}
-                  </Typography>
+                  
                 </Paper>
               </motion.div>
             </Grid>
@@ -110,7 +109,7 @@ export default function Depoimentos() {
               4.9/5 estrelas
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              – Mais de 2.000 avaliações
+                <Link href={'https://share.google/KuXLKXV9vgsMzhzL3'}>Mais  avaliações</Link>
             </Typography>
           </Box>
         </Box>

@@ -4,7 +4,7 @@ import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBolt, faCrown, faGears, faRocket } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
-import planosData from '../../data/planos.json';
+import planosData from '../../data/cplanos.json';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const iconsMap: { [key: string]: any } = {

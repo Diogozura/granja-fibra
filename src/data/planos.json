@@ -1,17 +1,42 @@
-{
-  "headers": ["Recursos", "Plano start", "Plano family", "Plano Ultra"],
-  "icons": ["fa-gears", "fa-bolt", "fa-crown", "fa-rocket"],
-  "prices": ["", "R$ 24,95/mês", "R$ 39,95/mês", "R$ 59,95/mês"],
-  "rows": [
-    ["Velocidade de Download", "300 Mbps", "600 Mbps", "1000 Mbps"],
-    ["Tecnologia Wi-Fi", "Wi-Fi 6", "Wi-Fi 6 Pro", "Wi-Fi 6E"],
-    ["Tempo de Instalação", "24h", "12h", "6h"],
-    ["Suporte Técnico", "Técnico", "Prioritário 24/7", "Dedicado Premium"],
-    ["Streamings Inclusos", "Não incluso", "Netflix Premium", "Netflix + Prime + Disney+"],
-    ["Equipamento", "✘", "✘", "✔"],
-    ["Backup 4G", "✘", "✘", "✔"],
-    ["IP Fixo", "✘", "✘", "✔"],
-    ["Ideal para", "1-3 pessoas", "3-6 pessoas", "6+ pessoas"],
-    ["Garantia", "30 dias", "60 dias", "90 dias"]
-  ]
-}
+[
+  {
+    "promocao": "Compre 150 MEGA",
+    "preco": "R$109,90/Mês",
+    "destaque": false,
+    "beneficios": [
+      "Instalação gratuita",
+      "Mensalidade para 30 dias",
+      "Plano fibra óptica",
+      "Roteador incluso",
+      "Suporte todos os dias",
+      "Sem fidelidade"
+    ]
+  },
+  {
+    "promocao": "Compre 250 MEGA",
+    "preco": "R$129,90/Mês",
+    "destaque": false,
+    "beneficios": [
+      "Instalação gratuita",
+      "Mensalidade para 30 dias",
+      "Plano fibra óptica",
+      "Roteador incluso",
+      "Suporte todos os dias",
+      "Sem fidelidade"
+    ]
+  },
+  {
+    "promocao": "Compre 350 MEGA + REPETIDOR MESH 5G",
+    "preco": "R$159,90/Mês",
+    "destaque": false,
+    "beneficios": [
+      "Instalação gratuita",
+      "Mensalidade para 30 dias",
+      "Plano fibra óptica",
+      "Roteador incluso",
+      "Repetidor 5G MESH incluso",
+      "Suporte todos os dias",
+      "Sem fidelidade"
+    ]
+  }
+]

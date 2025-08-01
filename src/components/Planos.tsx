@@ -15,50 +15,8 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
-const planos = [
-  {
-    promocao: 'Compre 150 MEGA',
-    preco: 'R$109,90/Mês',
-    destaque: false,
-    beneficios: [
-      'Instalação gratuita',
-      'Mensalidade para 30 dias',
-      'Plano fibra óptica',
-      'Roteador incluso',
-      'Suporte todos os dias',
-      'Sem fidelidade',
-    ],
-  },
-  {
-    promocao: 'Compre 250 MEGA',
-    preco: 'R$129,90/Mês',
-    destaque: false,
-    beneficios: [
-      'Instalação gratuita',
-      'Mensalidade para 30 dias',
-      'Plano fibra óptica',
-      'Roteador incluso',
-      'Suporte todos os dias',
-      'Sem fidelidade',
-    ],
-  },
-  {
-    promocao: 'Compre 350 MEGA + REPETIDOR MESH 5G',
-    preco: 'R$159,90/Mês',
-    destaque: false,
-    beneficios: [
-      'Instalação gratuita',
-      'Mensalidade para 30 dias',
-      'Plano fibra óptica',
-      'Roteador incluso',
-      'Repetidor 5G MESH incluso',
-      'Suporte todos os dias',
-      'Sem fidelidade',
-    ],
-  },
-];
 interface Plano {
-  nome: string;
+  promocao: string;
   velocidade: string;
   descricao: string;
   preco: string;
@@ -69,14 +27,14 @@ interface Plano {
 }
 export default function Planos() {
 
-  // const [planos, setPlanos] = useState<Plano[]>([]);
+  const [planos, setPlanos] = useState<Plano[]>([]);
 
-  // useEffect(() => {
-  //   fetch('http://localhost/sistema_avaliacoes/planos.json')
-  //     .then((res) => res.json())
-  //     .then((data) => setPlanos(data));
-  // }, []);
-  // console.log('planos', planos)
+  useEffect(() => {
+    fetch('http://localhost/sistema_avaliacoes/dados.php')
+      .then((res) => res.json())
+      .then((data) => setPlanos(data.planos));
+  }, []);
+  console.log('planos', planos)
   return (
     <Box py={10} sx={{ background: '#F5F6FA' }} id='planos'>
       <Container maxWidth="lg">

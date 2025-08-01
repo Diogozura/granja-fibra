@@ -1,15 +1,37 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Box, Button, Card, CardContent, Typography, Grid, Chip, List, ListItem, ListItemIcon, ListItemText, Container, Avatar } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import ofertas from '../data/ofertas.json';
+// import ofertas from '../data/ofertas.json';
+
+
+interface Ofertas {
+  promocao: string;
+  velocidade: string;
+  descricao: string;
+  preco: string;
+  precoOriginal: string;
+  destaque: boolean;
+  beneficios: string[];
+
+}
 
 function Ofertas() {
+
+  const [ofertas, setOfertas] = useState<Ofertas[]>([]);
+
+  useEffect(() => {
+    fetch('http://localhost/sistema_avaliacoes/dados.php')
+      .then((res) => res.json())
+      .then((data) => setOfertas(data.ofertas));
+  }, []);
+  console.log('planos', ofertas)
+
   return (
     <Container maxWidth="lg">
       <Box py={8}>
@@ -110,8 +132,8 @@ function Ofertas() {
                       </ListItem>
                     ))}
                   </List>
-                  <Typography variant="body2" color="text.secondary" mb={2}>
-                    {oferta.preco}
+                  <Typography variant="h6" mt={1} fontWeight={600}>
+                      {oferta.preco}
                   </Typography>
                   <Link href={`/assinar`} passHref>
                     <Button

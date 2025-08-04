@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-// import ofertas from '../data/ofertas.json';
 
 
 interface Ofertas {

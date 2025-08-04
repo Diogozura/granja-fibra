@@ -55,7 +55,7 @@ export default function FormContato() {
         <Grid size={{ xs: 12, sm: 6 }}>
           <TextField
             fullWidth
-            label="Nome completo *"
+            label="Nome completo"
             size="small"
             required
             value={nome}
@@ -65,7 +65,7 @@ export default function FormContato() {
         <Grid size={{ xs: 12, sm: 6 }}>
           <TextField
             fullWidth
-            label="Telefone/WhatsApp *"
+            label="Telefone/WhatsApp"
             size="small"
             required
             value={telefone}
@@ -75,7 +75,7 @@ export default function FormContato() {
         <Grid size={12}>
           <TextField
             fullWidth
-            label="E-mail *"
+            label="E-mail"
             size="small"
             required
             value={email}

@@ -101,7 +101,7 @@ npm run export
 
 ## 📌 Observações
 
-* As páginas `/planos`, `/ofertas`, `/contato`, `/faq`, etc., carregam dados dinamicamente a partir do CMS PHP (via fetch).
+* As páginas `/planos`, `/promocoes`, `/contato`, `/faq`, etc., carregam dados dinamicamente a partir do CMS PHP (via fetch).
 * A verificação de CEP ocorre antes da liberação do formulário de contato.
 * Todas as imagens são otimizadas e carregadas com `next/image`.
 

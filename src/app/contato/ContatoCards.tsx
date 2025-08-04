@@ -66,9 +66,7 @@ export default function ContatoCards() {
                       <Typography variant="body2" textAlign="center">
                         {rows[0][index]}
                       </Typography>
-                      <Typography variant="caption" color="text.secondary" textAlign="center">
-                        {rows[0][2]} {/* Atendimento 24h ou similar */}
-                      </Typography>
+                      
                     </Box>
                   </CardContent>
                 </Card>

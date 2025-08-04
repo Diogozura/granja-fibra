@@ -1,5 +1,5 @@
 'use client'
-import { Box, Grid, Typography, Paper, Divider } from '@mui/material';
+import { Box, Grid, Typography, Paper } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import empresa from '../../data/empresa.json';

@@ -30,7 +30,7 @@ export default function CallToAction() {
             Falar com consultor
           </Button>
           <Button
-            onClick={() => router.push('/ofertas')}
+            onClick={() => router.push('/promocoes')}
             variant="contained"
             sx={{ bgcolor: '#f2f2f2', color: 'black', boxShadow: 1, '&:hover': { bgcolor: '#e0e0e0' } }}
           >

@@ -4,11 +4,16 @@ import {
   Box,
   Button,
   Container,
+  FormControl,
   Grid,
+  InputLabel,
+  MenuItem,
+  Select,
   TextField,
   Typography,
 } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { formatPhone } from '@/utils/formatPhone'; // ou onde estiver salva
 
 export default function VerificacaoEndereco() {
   const [cep, setCep] = useState('');
@@ -18,6 +23,24 @@ export default function VerificacaoEndereco() {
   const [mensagem, setMensagem] = useState('');
   const [liberarFormulario, setLiberarFormulario] = useState(false);
   const [tentouConsultar, setTentouConsultar] = useState(false);
+  const [planos, setPlanos] = useState<{ promocao: string }[]>([]);
+  const [planoSelecionado, setPlanoSelecionado] = useState('');
+
+  useEffect(() => {
+    fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/dados.php')
+      .then(res => res.json())
+      .then(data => {
+        const planosComuns = data.planos || [];
+        const ofertas = data.ofertas || [];
+
+        // Junta tudo
+        const todos = [...planosComuns, ...ofertas];
+
+        setPlanos(todos); // continua usando o mesmo estado
+      })
+      .catch(() => setPlanos([]));
+  }, []);
+
 
   const consultarCep = async () => {
     setTentouConsultar(true);
@@ -29,7 +52,9 @@ export default function VerificacaoEndereco() {
     }
     try {
       const res = await fetch(
-        `https://qrcode.grajafibra.inf.br/sistema_avaliacoes/consultaCep.php?cep=${cepLimpo}`
+        // `https://qrcode.grajafibra.inf.br/sistema_avaliacoes/consultaCep.php?cep=${cepLimpo}`
+        ` http://localhost/sistema_avaliacoes/consultaCep.php?cep=${cepLimpo}`
+
       );
       const data = await res.json();
 
@@ -51,6 +76,7 @@ export default function VerificacaoEndereco() {
       telefone,
       cep,
       numero,
+      plano: planoSelecionado, // novo campo!
     };
 
     const res = await fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/salvarLead.php', {
@@ -63,10 +89,8 @@ export default function VerificacaoEndereco() {
 
     const data = await res.json();
 
-    if (data.sucesso) {
-      const mensagem = `Olá! Me chamo ${nome} e tenho interesse em assinar a internet.`;
-      const url = `https://wa.me/558002950800?text=${encodeURIComponent(mensagem)}`;
-      window.location.href = url;
+    if (data.sucesso && data.redirect_url) {
+      window.location.href = data.redirect_url;
     } else {
       alert('Erro ao salvar. Tente novamente.');
     }
@@ -116,9 +140,23 @@ export default function VerificacaoEndereco() {
             label="Informe o telefone"
             fullWidth
             value={telefone}
-            onChange={(e) => setTelefone(e.target.value)}
+            onChange={(e) => setTelefone(formatPhone(e.target.value))}
             sx={{ mb: 2 }}
           />
+          <FormControl fullWidth sx={{ mb: 2 }}>
+            <InputLabel>Escolha um plano</InputLabel>
+            <Select
+              value={planoSelecionado}
+              onChange={(e) => setPlanoSelecionado(e.target.value)}
+              label="Escolha um plano"
+            >
+              {planos.map((p, i) => (
+                <MenuItem key={i} value={p.promocao}>
+                  {p.promocao}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
           <Button variant="outlined" onClick={handleEnviar} fullWidth sx={{ mb: 2 }} >
             Enviar
           </Button>

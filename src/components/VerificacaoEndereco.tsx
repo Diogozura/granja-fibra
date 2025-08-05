@@ -174,9 +174,6 @@ export default function VerificacaoEndereco() {
       {/* Passo 3: Mensagem negativa */}
       {tentouConsultar && !liberarFormulario && (
         <Box mt={4}>
-          <Typography variant="h6" mb={2}>
-            Se negativa
-          </Typography>
           <Typography fontWeight={600} mb={1}>
             Que pena! Infelizmente não atendemos o seu endereço
           </Typography>

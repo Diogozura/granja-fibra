@@ -9,6 +9,10 @@ import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-sv
 
 const linksUteis = [
   {
+    title: 'Promoções',
+    link: '/promocoes' 
+  },
+  {
     title: 'Graja Vantagens',
     link: 'https://grajavantagens.partiu.com.br/' 
   },
@@ -118,7 +122,7 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.es
                 <Link href='https://www.instagram.com/grajafibra/'>
                   <FontAwesomeIcon icon={faInstagram} color='#fff' style={{ marginTop: 4 }} />
                 </Link>
-                <Link href='https://api.whatsapp.com/send/?phone=558002950800&text=Ol%C3%A1%2C+tenho+algumas+d%C3%BAvidas+referente+a+Internet+da+Graja%25Fibra&type=phone_number&app_absent=0'>
+                <Link href='https://wa.me/558002950800'>
                   <FontAwesomeIcon icon={faWhatsapp} color='#fff' style={{ marginTop: 4 }} />
                 </Link>
               </Box>

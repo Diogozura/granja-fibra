@@ -20,27 +20,6 @@ export default function PlanosEmpresa() {
             <Container maxWidth="lg" sx={{ py: 10 }}>
                 {/* Título principal */}
 
-                <Typography
-                    component="h1"
-                    variant="h2"
-                    align="center"
-                    fontWeight={600}
-                    gutterBottom
-                >
-                    Escolha Seu Plano Ideal
-                </Typography>
-
-
-
-                <Typography
-                    component="p"
-                    variant="body1"
-                    textAlign="center"
-                    color="text.secondary"
-                    sx={{ maxWidth: 800, mx: 'auto', mb: 8, mt: 2, lineHeight: 1.8 }}
-                >
-                    Compare todos os recursos e benefícios dos nossos planos. Encontre a opção perfeita para suas necessidades.
-                </Typography>
 
 
 

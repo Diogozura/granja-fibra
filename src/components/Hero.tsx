@@ -93,7 +93,7 @@ export default function Hero() {
                   PLANOS DE
                 </Typography>
                 <Typography variant="h5" fontWeight={900}>
-                  250 MEGA
+                  500 MEGA
                 </Typography>
                 <Box mt={2}>
                   <Typography fontSize="0.85rem" fontWeight={600}>

@@ -15,31 +15,15 @@ export default function OfertasEmpresa() {
     return (
         <>
             <head>
-                <title>Nossas ofertas - Graja fibra</title>
+                <title>Nossas promoções - Graja fibra</title>
                 <meta name="description" content="Provedor de Internet Granja fibra A Melhor Internet você encontra aqui Contamos com diversos planos, atendimento de qualidade e tecnologia de ponta para levar a melhor conexão até você!" />
             </head>
             <Container maxWidth="lg" sx={{ py: 10 }}>
                 {/* Título principal */}
 
-                <Typography
-                    component="h1"
-                    variant="h2"
-                    align="center"
-                    fontWeight={600}
-                    gutterBottom
-                >
-                    Escolha Oferta
-                </Typography>
-
-
-
-
-
                 <Ofertas />
 
-                <Suspense fallback={<div>Carregando contato...</div>}>
-                    <FaleConosco />
-                </Suspense>
+        
 
 
 

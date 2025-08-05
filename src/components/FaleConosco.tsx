@@ -88,40 +88,7 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade}`;
               </Box>
             </Stack>
 
-            {/* Instalação Express */}
-            <Paper
-              elevation={0}
-              sx={{
-                bgcolor: 'secondary.main',
-                color: '#fff',
-                mt: 5,
-                p: 3,
-                borderRadius: 3,
-              }}
-            >
-              <Box display="flex" alignItems="center" gap={1} mb={1}>
-                <FontAwesomeIcon icon={faRocket} />
-                <Typography fontWeight={600} color="#fff">
-                  Instalação Express
-                </Typography>
-              </Box>
-              <Typography variant="body2" mb={2}>
-                Instalação em até 48 horas úteis! Nossa equipe técnica agenda conforme sua disponibilidade.
-              </Typography>
-              <Stack spacing={1}>
-                {[
-                  'Sem taxa de instalação',
-                  'Sem taxa de adesão',
-                  'Roteador Wi-Fi incluso',
-                  'Teste de velocidade na hora',
-                ].map((text, i) => (
-                  <Box key={i} display="flex" alignItems="center" gap={1}>
-                    <FontAwesomeIcon icon={faCheck} color="limegreen" />
-                    <Typography variant="body2">{text}</Typography>
-                  </Box>
-                ))}
-              </Stack>
-            </Paper>
+        
           </Grid>
 
           {/* Formulário */}

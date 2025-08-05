@@ -17,12 +17,6 @@ export default function Assinar() {
             }}
                 maxWidth="lg"
             >
-                <Typography component="h1"
-                    variant="h3"
-                    align="center"
-                    className="text-gradient-primary"
-                    fontWeight={600}
-                    gutterBottom >Solicitação de instalação</Typography>
                 <VerificacaoEndereco />
             </Container>
 

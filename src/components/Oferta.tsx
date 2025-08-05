@@ -9,47 +9,44 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 
-interface Ofertas {
+interface Oferta {
   promocao: string;
-  velocidade: string;
-  descricao: string;
   preco: string;
-  precoOriginal: string;
-  destaque: boolean;
   beneficios: string[];
-
 }
+
+interface DadosOfertas {
+  ofertas: {
+    dataOfertaValida: string;
+    promocoes: Oferta[];
+  };
+}
+
 
 function Ofertas() {
 
-  const [ofertas, setOfertas] = useState<Ofertas[]>([]);
+  const [dados, setDados] = useState<DadosOfertas | null>(null);
 
   useEffect(() => {
     fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/dados.php')
       .then((res) => res.json())
-      .then((data) => setOfertas(data.ofertas));
+      .then((data) => {
+        const ofertas = data?.ofertas; // Pula a primeira posição
+
+        setDados({
+          ofertas
+        });
+      });
   }, []);
 
 
   return (
     <Container maxWidth="lg">
       <Box py={8}>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <Typography variant="h4" align="center" fontWeight={600}>
-            Promoções Disponíveis
-          </Typography>
-          <Typography align="center" color="text.secondary" mb={4}>
-            Acesse todas as promoções disponíveis no momento.
-          </Typography>
-        </motion.div>
+
 
         <Grid container spacing={3} justifyContent="center">
-          {ofertas.map((oferta, i) => (
+          {dados?.ofertas.promocoes.map((oferta, i) => (
             <Grid
               size={{ xs: 12, md: 4 }}
 
@@ -132,7 +129,7 @@ function Ofertas() {
                     ))}
                   </List>
                   <Typography variant="h6" mt={1} fontWeight={600}>
-                      {oferta.preco}
+                    {oferta.preco}
                   </Typography>
                   <Link href={`/assinar`} passHref>
                     <Button
@@ -148,6 +145,16 @@ function Ofertas() {
             </Grid>
           ))}
         </Grid>
+        <Box component={'aside'} textAlign={'center'}>
+          <Typography component={'p'} variant='body2'>*Consulte a disponibilidade para sua regiao.</Typography>
+          <Typography component={'p'} variant='body2'>**Sujeito a analise de credito.</Typography>
+          {dados?.ofertas?.dataOfertaValida && (
+            <Typography component="p" variant="body2">
+              ***Promoção válida até {dados.ofertas?.dataOfertaValida}.
+            </Typography>
+          )}
+        </Box>
+
       </Box>
     </Container>
   );

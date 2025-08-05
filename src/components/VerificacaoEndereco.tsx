@@ -25,13 +25,20 @@ export default function VerificacaoEndereco() {
   const [tentouConsultar, setTentouConsultar] = useState(false);
   const [planos, setPlanos] = useState<{ promocao: string }[]>([]);
   const [planoSelecionado, setPlanoSelecionado] = useState('');
+  const [utmSource, setUtmSource] = useState('organico');
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const utm = params.get('utm_source');
+    setUtmSource(utm || 'organico');
+  }, []);
 
   useEffect(() => {
     fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/dados.php')
       .then(res => res.json())
       .then(data => {
         const planosComuns = data.planos || [];
-        const ofertas = data.ofertas || [];
+        const ofertas = data.ofertas.promocoes || [];
 
         // Junta tudo
         const todos = [...planosComuns, ...ofertas];
@@ -52,8 +59,7 @@ export default function VerificacaoEndereco() {
     }
     try {
       const res = await fetch(
-        // `https://qrcode.grajafibra.inf.br/sistema_avaliacoes/consultaCep.php?cep=${cepLimpo}`
-        ` http://localhost/sistema_avaliacoes/consultaCep.php?cep=${cepLimpo}`
+        `https://qrcode.grajafibra.inf.br/sistema_avaliacoes/consultaCep.php?cep=${cepLimpo}`
 
       );
       const data = await res.json();
@@ -76,7 +82,8 @@ export default function VerificacaoEndereco() {
       telefone,
       cep,
       numero,
-      plano: planoSelecionado, // novo campo!
+      plano: planoSelecionado, 
+      utm_source: utmSource,
     };
 
     const res = await fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/salvarLead.php', {
@@ -95,6 +102,7 @@ export default function VerificacaoEndereco() {
       alert('Erro ao salvar. Tente novamente.');
     }
   };
+  console.log('planos', planos);
   return (
     <Container maxWidth="sm" sx={{ py: 6 }}>
       {/* Passo 1: Digitar CEP e número */}

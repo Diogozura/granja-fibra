@@ -1,5 +1,5 @@
 import VerificacaoEndereco from "@/components/VerificacaoEndereco";
-import { Container, Typography } from "@mui/material";
+import { Container } from "@mui/material";
 
 
 export default function Assinar() {

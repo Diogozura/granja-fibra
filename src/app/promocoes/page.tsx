@@ -1,13 +1,9 @@
 'use client';
 
-import { Container, Typography } from "@mui/material";
+import { Container } from "@mui/material";
 import dynamic from 'next/dynamic';
-import head from "next/head";
-import { Suspense } from "react";
 
-const FaleConosco = dynamic(() => import('@/components/FaleConosco'), {
-  ssr: false,
-});
+
 const Ofertas = dynamic(() => import('@/components/Oferta'));
 
 

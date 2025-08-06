@@ -13,7 +13,7 @@ import {
   Typography,
 } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { formatPhone } from '@/utils/formatPhone'; // ou onde estiver salva
+import { formatPhone } from '@/utils/formatPhone';
 
 export default function VerificacaoEndereco() {
   const [cep, setCep] = useState('');
@@ -21,8 +21,8 @@ export default function VerificacaoEndereco() {
   const [nome, setNome] = useState('');
   const [telefone, setTelefone] = useState('');
   const [mensagem, setMensagem] = useState('');
-  const [liberarFormulario, setLiberarFormulario] = useState(false);
-  const [tentouConsultar, setTentouConsultar] = useState(false);
+  const [mostrarForm, setMostrarForm] = useState(false);
+  const [liberarPlano, setLiberarPlano] = useState(false);
   const [planos, setPlanos] = useState<{ promocao: string }[]>([]);
   const [planoSelecionado, setPlanoSelecionado] = useState('');
   const [utmSource, setUtmSource] = useState('organico');
@@ -39,73 +39,70 @@ export default function VerificacaoEndereco() {
       .then(data => {
         const planosComuns = data.planos || [];
         const ofertas = data.ofertas.promocoes || [];
-
-        // Junta tudo
-        const todos = [...planosComuns, ...ofertas];
-
-        setPlanos(todos); // continua usando o mesmo estado
+        setPlanos([...planosComuns, ...ofertas]);
       })
       .catch(() => setPlanos([]));
   }, []);
 
-
-  const consultarCep = async () => {
-    setTentouConsultar(true);
-    const cepLimpo = cep.replace(/\D/g, '');
-    if (cepLimpo.length !== 8) {
+  const handleConsultarCEP = () => {
+    if (cep.replace(/\D/g, '').length !== 8) {
       setMensagem('❌ CEP inválido');
-      setLiberarFormulario(false);
       return;
     }
-    try {
-      const res = await fetch(
-        `https://qrcode.grajafibra.inf.br/sistema_avaliacoes/consultaCep.php?cep=${cepLimpo}`
+    setMostrarForm(true); // exibe nome e telefone
+    setMensagem(''); // limpa qualquer mensagem anterior
+  };
 
-      );
+  const handleValidarLead = async () => {
+    if (!nome || !telefone) {
+      setMensagem('⚠️ Preencha seu nome e telefone para continuar.');
+      return;
+    }
+
+    try {
+      const res = await fetch(`https://qrcode.grajafibra.inf.br/sistema_avaliacoes/consultaCep.php?cep=${cep}`);
       const data = await res.json();
+
+      const payload = {
+        nome,
+        telefone,
+        cep,
+        numero,
+        plano: planoSelecionado,
+        utm_source: utmSource,
+      };
+
+      // sempre salva o lead, mesmo que não atenda
+      await fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/salvarLead.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
 
       if (data.autorizado) {
         setMensagem(`✅ Atendemos sua região: ${data.dados.cidade} - ${data.dados.estado}`);
-        setLiberarFormulario(true);
+        setLiberarPlano(true);
       } else {
-        setMensagem(data.mensagem || '❌ Não trabalhamos nessa região');
-        setLiberarFormulario(false);
+        setMensagem('❌ Que pena! Infelizmente não atendemos o seu endereço . Assim que houver disponibilidade entraremos em contato.');
+        setLiberarPlano(false);
       }
     } catch {
       setMensagem('Erro ao consultar o CEP');
-      setLiberarFormulario(false);
     }
   };
+
   const handleEnviar = async () => {
-    const payload = {
-      nome,
-      telefone,
-      cep,
-      numero,
-      plano: planoSelecionado, 
-      utm_source: utmSource,
-    };
-
-    const res = await fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/salvarLead.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    });
-
-    const data = await res.json();
-
-    if (data.sucesso && data.redirect_url) {
-      window.location.href = data.redirect_url;
-    } else {
-      alert('Erro ao salvar. Tente novamente.');
+    // Apenas finaliza envio se for atendido
+    if (!planoSelecionado) {
+      alert('Selecione um plano.');
+      return;
     }
+
+    window.location.href = 'https://www.grajafibra.com.br/obrigado'; // ou usar o redirect retornado da API
   };
-  console.log('planos', planos);
+
   return (
     <Container maxWidth="sm" sx={{ py: 6 }}>
-      {/* Passo 1: Digitar CEP e número */}
       <Typography variant="h6" fontWeight={700} mb={2}>
         Digite seu CEP:
       </Typography>
@@ -121,21 +118,14 @@ export default function VerificacaoEndereco() {
           />
         </Grid>
         <Grid size={12}>
-          <Button fullWidth variant="contained" onClick={consultarCep}>
+          <Button fullWidth variant="contained" onClick={handleConsultarCEP}>
             Consultar CEP
           </Button>
         </Grid>
       </Grid>
 
-      {/* Mensagem de status */}
-      {tentouConsultar && (
-        <Typography mt={3} fontWeight={600}>
-          {mensagem}
-        </Typography>
-      )}
-
-      {/* Passo 2: Formulário se positivo */}
-      {liberarFormulario && (
+      {/* Após clicar em "Consultar CEP", exibe Nome e Telefone */}
+      {mostrarForm && (
         <Box mt={4}>
           <TextField
             label="Qual seu nome?"
@@ -151,6 +141,22 @@ export default function VerificacaoEndereco() {
             onChange={(e) => setTelefone(formatPhone(e.target.value))}
             sx={{ mb: 2 }}
           />
+          <Button variant="contained" fullWidth onClick={handleValidarLead}>
+            Verificar disponibilidade
+          </Button>
+        </Box>
+      )}
+
+      {/* Mensagem de status */}
+      {mensagem && (
+        <Typography mt={3} fontWeight={600}>
+          {mensagem}
+        </Typography>
+      )}
+
+      {/* Se autorizado, mostra o select de plano */}
+      {liberarPlano && (
+        <Box mt={4}>
           <FormControl fullWidth sx={{ mb: 2 }}>
             <InputLabel>Escolha um plano</InputLabel>
             <Select
@@ -165,21 +171,9 @@ export default function VerificacaoEndereco() {
               ))}
             </Select>
           </FormControl>
-          <Button variant="outlined" onClick={handleEnviar} fullWidth sx={{ mb: 2 }} >
+          <Button variant="outlined" onClick={handleEnviar} fullWidth sx={{ mb: 2 }}>
             Enviar
           </Button>
-        </Box>
-      )}
-
-      {/* Passo 3: Mensagem negativa */}
-      {tentouConsultar && !liberarFormulario && (
-        <Box mt={4}>
-          <Typography fontWeight={600} mb={1}>
-            Que pena! Infelizmente não atendemos o seu endereço
-          </Typography>
-          <Typography>
-            Assim que houver disponibilidade entraremos em contato.
-          </Typography>
         </Box>
       )}
     </Container>

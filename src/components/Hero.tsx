@@ -100,7 +100,7 @@ export default function Hero() {
                     ATÉ
                   </Typography>
                   <Typography variant="h5" fontWeight={900}>
-                    750 MEGA
+                    ATÉ 750 MEGA
                   </Typography>
                   <Typography fontSize="0.85rem">DE VELOCIDADE</Typography>
                 </Box>
@@ -207,10 +207,10 @@ export default function Hero() {
               PLANOS DE
             </Typography>
             <Typography variant="h5" fontWeight={900}>
-              250 MEGA
+              500 MEGA
             </Typography>
             <Typography fontSize="0.9rem" fontWeight={600} color="text.secondary" mt={1}>
-              ATÉ 750 MEGA DE VELOCIDADE
+              ATÉ 750 MEGA
             </Typography>
             <Typography fontSize="0.9rem" fontWeight={600} color="text.secondary" mt={2}>
               A PARTIR DE
@@ -218,9 +218,7 @@ export default function Hero() {
             <Typography variant="h4" fontWeight={900}>
               R$ 99<small>,90</small>
             </Typography>
-            <Typography variant="caption" color="text.secondary">
-              APÓS 3 MESES/ R$120,90
-            </Typography>
+           
           </Box>
 
           <Button

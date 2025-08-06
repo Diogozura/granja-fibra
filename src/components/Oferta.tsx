@@ -43,8 +43,6 @@ function Ofertas() {
   return (
     <Container maxWidth="lg">
       <Box py={8}>
-
-
         <Grid container spacing={3} justifyContent="center">
           {dados?.ofertas.promocoes.map((oferta, i) => (
             <Grid

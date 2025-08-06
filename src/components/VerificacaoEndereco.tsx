@@ -60,7 +60,7 @@ export default function VerificacaoEndereco() {
     }
 
     try {
-      const res = await fetch(`https://qrcode.grajafibra.inf.br/sistema_avaliacoes/consultaCep.php?cep=${cep}`);
+      const res = await fetch(`http://localhost/sistema_avaliacoes/consultaCep.php?cep=${cep}`);
       const data = await res.json();
 
       const payload = {
@@ -71,9 +71,10 @@ export default function VerificacaoEndereco() {
         plano: planoSelecionado,
         utm_source: utmSource,
       };
-
+      http://localhost/sistema_avaliacoes/usuarios_interessados.php
       // sempre salva o lead, mesmo que não atenda
-      await fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/salvarLead.php', {
+      await fetch('http://localhost/sistema_avaliacoes/salvarLead.php', {
+        // await fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/salvarLead.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -112,8 +113,17 @@ export default function VerificacaoEndereco() {
           <TextField
             label="CEP"
             fullWidth
-            value={cep}
-            onChange={(e) => setCep(e.target.value)}
+            value={
+              cep.length <= 5
+                ? cep
+                : `${cep.slice(0, 5)}-${cep.slice(5, 8)}`
+            }
+            onChange={(e) => {
+              const apenasNumeros = e.target.value.replace(/\D/g, '');
+              if (apenasNumeros.length <= 8) {
+                setCep(apenasNumeros);
+              }
+            }}
             inputProps={{ maxLength: 9 }}
           />
         </Grid>

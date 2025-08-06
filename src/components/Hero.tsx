@@ -10,7 +10,7 @@ export default function Hero() {
         sx={{
           position: 'relative',
           width: '100%',
-          height: { xs: 'auto', md: '10vh' },
+          height: { xs: 'auto', md: '100vh' },
           bgcolor: '#000',
           display: { xs: 'none', md: 'flex' },
           flexDirection: 'column',
@@ -154,7 +154,7 @@ export default function Hero() {
       <Box
         sx={{
           position: 'relative',
-          height: '100vh',
+          height: '90vh',
           display: { xs: 'block', md: 'none' },
           overflow: 'hidden',
           backgroundColor: '#000',

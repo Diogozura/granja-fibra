@@ -10,7 +10,7 @@ export default function Hero() {
         sx={{
           position: 'relative',
           width: '100%',
-          height: { xs: 'auto', md: '80vh' },
+          height: { xs: 'auto', md: '10vh' },
           bgcolor: '#000',
           display: { xs: 'none', md: 'flex' },
           flexDirection: 'column',
@@ -125,9 +125,6 @@ export default function Hero() {
                 <Typography variant="h4" fontWeight={900}>
                   R$ 99<small>,90</small>
                 </Typography>
-                <Typography variant="caption">
-                  APÓS 3 MESES/ R$120,90
-                </Typography>
               </Box>
             </Box>
 
@@ -157,7 +154,7 @@ export default function Hero() {
       <Box
         sx={{
           position: 'relative',
-          height: 500,
+          height: '100vh',
           display: { xs: 'block', md: 'none' },
           overflow: 'hidden',
           backgroundColor: '#000',

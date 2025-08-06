@@ -60,7 +60,7 @@ export default function VerificacaoEndereco() {
     }
 
     try {
-      const res = await fetch(`http://localhost/sistema_avaliacoes/consultaCep.php?cep=${cep}`);
+      const res = await fetch(`https://qrcode.grajafibra.inf.br/sistema_avaliacoes/consultaCep.php?cep=${cep}`);
       const data = await res.json();
 
       const payload = {
@@ -71,10 +71,10 @@ export default function VerificacaoEndereco() {
         plano: planoSelecionado,
         utm_source: utmSource,
       };
-      http://localhost/sistema_avaliacoes/usuarios_interessados.php
+
       // sempre salva o lead, mesmo que não atenda
-      await fetch('http://localhost/sistema_avaliacoes/salvarLead.php', {
-        // await fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/salvarLead.php', {
+  
+        await fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/salvarLead.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

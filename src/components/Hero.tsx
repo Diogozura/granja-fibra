@@ -27,7 +27,7 @@ export default function Hero() {
             top: 0,
             right: 0,
             bottom: 0,
-            width: '60%',
+            width: '70%',
             zIndex: 0,
             overflow: 'hidden',
           }}
@@ -218,7 +218,7 @@ export default function Hero() {
             <Typography variant="h4" fontWeight={900}>
               R$ 99<small>,90</small>
             </Typography>
-           
+
           </Box>
 
           <Button

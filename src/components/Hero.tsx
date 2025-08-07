@@ -6,6 +6,7 @@ import Image from 'next/image';
 export default function Hero() {
   return (
     <>
+    {/* pc S */}
       <Box
         sx={{
           position: 'relative',
@@ -53,11 +54,12 @@ export default function Hero() {
         </Box>
 
         {/* CONTEÚDO POR CIMA */}
-        <Container
-          maxWidth="lg"
+        <Box
           sx={{
+            width: '100%',
             position: 'relative',
             zIndex: 2,
+            p: 4,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
@@ -149,8 +151,10 @@ export default function Hero() {
               </Button>
             </Box>
           </Box>
-        </Container>
+          
+        </Box>
       </Box>
+      {/* mobile  */}
       <Box
         sx={{
           position: 'relative',

@@ -174,10 +174,11 @@ export default function Hero() {
           src={heroFamilia}
           alt="Família feliz"
           fill
-          priority            // hero = LCP → não use lazy
-          sizes="100vw"       // em mobile ocupa a largura toda
-          quality={70}
-          decoding="async"
+
+          loading="lazy"
+          fetchPriority="auto"
+          // ajuda o browser a decidir o tamanho certo no server-render
+          sizes="(max-width: 350px) 100vw, 70vw"
           style={{
             objectFit: 'cover',
             objectPosition: 'center',

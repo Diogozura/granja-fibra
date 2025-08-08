@@ -34,7 +34,7 @@ export default function Hero() {
           }}
         >
           <Image
-            src="/hero-image-familia.png"
+            src="/hero-image-familia.webp"
             alt="Família feliz"
             fill
             priority
@@ -170,9 +170,13 @@ export default function Hero() {
       >
         {/* Imagem de fundo */}
         <Image
-          src="/hero-image-familia.png"
+          src="/hero-image-familia.webp"
           alt="Família feliz"
           fill
+          priority
+          fetchPriority="high"
+          // ajuda o browser a decidir o tamanho certo no server-render
+          sizes="(max-width: 900px) 100vw, 70vw"
           style={{
             objectFit: 'cover',
             objectPosition: 'center',

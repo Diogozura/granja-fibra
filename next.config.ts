@@ -1,5 +1,7 @@
 import type { NextConfig } from 'next'
 
+
+
 // Se publicar em subpasta (ex.: /site), defina NEXT_PUBLIC_BASE_PATH="/site" no .env
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
 
@@ -23,7 +25,6 @@ const nextConfig: NextConfig = {
 
   experimental: {
 
-
     // tree-shaking fino nas libs
     optimizePackageImports: [
       '@mui/material',
@@ -33,5 +34,6 @@ const nextConfig: NextConfig = {
     ],
   },
 }
+
 
 export default nextConfig

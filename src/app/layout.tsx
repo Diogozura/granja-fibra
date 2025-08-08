@@ -81,7 +81,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </Script>
         <Providers>
           <Header />
-          <Header />
           {children}
           <CookieBanner />
           <BottomBar />

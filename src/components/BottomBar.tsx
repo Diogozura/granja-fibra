@@ -53,7 +53,11 @@ export default function BottomBar() {
                     alt="Empresa verificada Reclame Aqui"
                     width={100}
                     height={30}
-                />  
+                    priority
+                    fetchPriority="high"
+                    // ajuda o browser a decidir o tamanho certo no server-render
+                    sizes="(max-width: 900px) 100vw, 70vw"
+                />
             </Box>
 
 

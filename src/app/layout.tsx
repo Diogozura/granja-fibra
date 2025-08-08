@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import BottomBar from '@/components/BottomBar';
 import Providers from './providers';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import JsonLd from './json-ld';
 import GA from '@/components/GA'; // NOVO
 
@@ -18,6 +18,13 @@ const inter = Inter({
   display: 'swap',
 });
 config.autoAddCss = false;
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+
+};
+
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.grajafibra.com.br'),

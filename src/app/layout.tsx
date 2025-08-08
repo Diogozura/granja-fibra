@@ -11,7 +11,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import Providers from './providers';
 import { Metadata } from 'next';
 import JsonLd from './json-ld';
-import { SpeedInsights } from "@vercel/speed-insights/next"
+
 const inter = Inter({
   subsets: ['latin'],
   weight: ['400', '600'], // regular e semi bold
@@ -58,16 +58,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <JsonLd />
       </head>
       <body>
-       <SpeedInsights />
         <Providers>
           <Header />
           {children}
+          
           <CookieBanner />
           <BottomBar />
           <Footer />
         </Providers>
+        <GoogleAnalytics gaId="G-D7N2LXCZXH" />
       </body>
-      {/* <GoogleAnalytics gaId="G-D7N2LXCZXH" /> */}
+      
     </html>
   );
 }

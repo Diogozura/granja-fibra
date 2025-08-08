@@ -10,14 +10,16 @@ import BottomBar from '@/components/BottomBar';
 import Providers from './providers';
 import { Metadata, Viewport } from 'next';
 import JsonLd from './json-ld';
-import { GoogleAnalytics } from '@next/third-parties/google'
+import Script from 'next/script';
 
+config.autoAddCss = false;
+// 
 const inter = Inter({
   subsets: ['latin'],
   weight: ['400', '600'], // regular e semi bold
   display: 'swap',
 });
-config.autoAddCss = false;
+
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -59,23 +61,36 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR" className={inter.className}>
+    <html lang="pt-BR" >
       <head>
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <JsonLd />
       </head>
-      <body>
+      <body className={inter.className}>
         <Providers>
           <Header />
           {children}
-
+          <Script id="ga4" strategy="afterInteractive">
+            {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-D7N2LCXZXH', { anonymize_ip: true });
+          `}
+          </Script>
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-D7N2LCXZXH"
+            strategy="afterInteractive"
+          />
           <CookieBanner />
           <BottomBar />
           <Footer />
         </Providers>
-        
+
 
       </body>
-<GoogleAnalytics gaId="G-D7N2LXCZXH" />
+
     </html>
   );
 }

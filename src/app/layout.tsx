@@ -1,5 +1,5 @@
 // src/app/layout.tsx
-import { ReactNode, Suspense } from 'react';
+import { ReactNode } from 'react';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import { Inter } from 'next/font/google';
@@ -69,9 +69,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <BottomBar />
           <Footer />
         </Providers>
-        <Suspense fallback={null}>
-          <GA />
-        </Suspense>
+        <GA />
       </body>
 
     </html>

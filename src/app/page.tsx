@@ -1,11 +1,6 @@
 // src/app/page.tsx
 'use client';
-
-import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
-
-
 
 
 const Hero = dynamic(() => import('@/components/Hero'));
@@ -33,9 +28,9 @@ export default function Home() {
       <Beneficios />
       <Planos />
       <Depoimentos />
-      <Suspense fallback={<div>Carregando contato...</div>}>
-        <FaleConosco />
-      </Suspense>
+
+      <FaleConosco />
+
 
     </>
   );

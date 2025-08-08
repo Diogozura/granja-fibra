@@ -10,7 +10,7 @@ import BottomBar from '@/components/BottomBar';
 import Providers from './providers';
 import { Metadata, Viewport } from 'next';
 import JsonLd from './json-ld';
-import GA from '@/components/GA'; // NOVO
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -38,10 +38,6 @@ export const metadata: Metadata = {
     'planos de internet',
     'internet residencial',
   ],
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-  },
   robots: { index: true, follow: true },
   openGraph: {
     title: 'Graja Fibra',
@@ -76,9 +72,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <BottomBar />
           <Footer />
         </Providers>
-        <GA />
-      </body>
+        
 
+      </body>
+<GoogleAnalytics gaId="G-D7N2LXCZXH" />
     </html>
   );
 }

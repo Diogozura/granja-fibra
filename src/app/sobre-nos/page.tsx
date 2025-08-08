@@ -4,10 +4,6 @@ import { Container, Typography, Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 
-
-
-
-
 const Valores = dynamic(() => import('./Valores'));
 
 export default function Sobre() {

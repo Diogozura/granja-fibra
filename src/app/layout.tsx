@@ -7,10 +7,10 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import BottomBar from '@/components/BottomBar';
-import { GoogleAnalytics } from '@next/third-parties/google';
 import Providers from './providers';
 import { Metadata } from 'next';
 import JsonLd from './json-ld';
+import GA from '@/components/GA'; // NOVO
 
 const inter = Inter({
   subsets: ['latin'],
@@ -61,14 +61,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Providers>
           <Header />
           {children}
-          
+
           <CookieBanner />
           <BottomBar />
           <Footer />
         </Providers>
-        <GoogleAnalytics gaId="G-D7N2LXCZXH" />
+        <GA />
       </body>
-      
+
     </html>
   );
 }

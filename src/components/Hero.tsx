@@ -2,6 +2,7 @@
 
 import { Box, Button, Typography } from '@mui/material';
 import Image from 'next/image';
+import heroFamilia from "../../public/hero-image-familia.webp"; // caminho relativo à pasta public
 
 export default function Hero() {
   return (
@@ -34,7 +35,7 @@ export default function Hero() {
           }}
         >
           <Image
-            src="/hero-image-familia.webp"
+            src={heroFamilia}
             alt="Família feliz"
             fill
             priority
@@ -170,7 +171,7 @@ export default function Hero() {
       >
         {/* Imagem de fundo */}
         <Image
-          src="/hero-image-familia.webp"
+          src={heroFamilia}
           alt="Família feliz"
           fill
           priority

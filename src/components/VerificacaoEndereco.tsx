@@ -98,8 +98,8 @@ export default function VerificacaoEndereco() {
       alert('Selecione um plano.');
       return;
     }
-
-    window.location.href = 'https://www.grajafibra.com.br/obrigado'; // ou usar o redirect retornado da API
+      setMensagem('Obrigado! Em breve entraremos em contato.');
+   
   };
 
   return (

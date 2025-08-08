@@ -47,10 +47,10 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.es
           {/* Logo + texto */}
           <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Image src="/logo-granja-fibra.png" width={200} height={48} alt="logo" />
-            <Typography variant="body2" mt={2} mb={2} color="grey.400">
+            <Typography variant="body2" component={'p'} mt={2} mb={2} color="grey.400">
               A melhor internet fibra ótica da região. Conectando você ao futuro com velocidade e qualidade.
             </Typography>
-            <Typography variant="caption" display="block" color="grey.600" mb={2}>
+            <Typography variant="caption" component={'p'} display="block" color="grey.600" mb={2}>
               {empresa.nomeEmpresa}
               <br />
               CNPJ {empresa.cnpj}

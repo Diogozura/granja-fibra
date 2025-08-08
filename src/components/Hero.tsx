@@ -6,7 +6,7 @@ import Image from 'next/image';
 export default function Hero() {
   return (
     <>
-    {/* pc S */}
+      {/* pc S */}
       <Box
         sx={{
           position: 'relative',
@@ -37,6 +37,10 @@ export default function Hero() {
             src="/hero-image-familia.png"
             alt="Família feliz"
             fill
+            priority
+            fetchPriority="high"
+            // ajuda o browser a decidir o tamanho certo no server-render
+            sizes="(max-width: 900px) 100vw, 70vw"
             style={{
               objectFit: 'cover',
               objectPosition: 'center right',
@@ -151,7 +155,7 @@ export default function Hero() {
               </Button>
             </Box>
           </Box>
-          
+
         </Box>
       </Box>
       {/* mobile  */}

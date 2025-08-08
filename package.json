@@ -34,5 +34,9 @@
     "eslint": "^9",
     "eslint-config-next": "15.4.2",
     "typescript": "^5"
-  }
+  },
+  "browserslist": {
+  "production": ["chrome >= 110", "edge >= 110", "firefox >= 110", "safari >= 15"],
+  "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+}
 }

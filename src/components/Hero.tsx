@@ -35,7 +35,7 @@ export default function Hero() {
           }}
         >
           <Image
-            src={heroFamilia}
+            src={'/hero-image-familia.avif'}
             alt="Família feliz"
             fill
             priority
@@ -171,14 +171,13 @@ export default function Hero() {
       >
         {/* Imagem de fundo */}
         <Image
-          src={heroFamilia}
-          alt="Família feliz"
+          src={'/hero-image-familia-mobile.avif'}
+          alt="Família feliz - graja fibra"
           fill
-
-          loading="lazy"
-          fetchPriority="auto"
-          // ajuda o browser a decidir o tamanho certo no server-render
-          sizes="(max-width: 350px) 100vw, 70vw"
+          priority
+          fetchPriority="high"
+          // nada de loading="lazy" aqui
+          sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 70vw"
           style={{
             objectFit: 'cover',
             objectPosition: 'center',

@@ -66,11 +66,11 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.es
                 src="/reclame-aqui-barra.webp"
                 alt="Empresa verificada Reclame Aqui"
                 width={250}
-                height={61}
-                priority
-                fetchPriority="low"
-                // ajuda o browser a decidir o tamanho certo no server-render
-               
+                height={65}
+                loading="lazy" // pode ser lazy, não é LCP
+                sizes="(max-width: 600px) 50vw, 250px"
+              // ajuda o browser a decidir o tamanho certo no server-render
+
               />
             </Box>
           </Grid>

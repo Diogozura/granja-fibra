@@ -37,8 +37,8 @@ export default function Header() {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', bgcolor: 'secondary.main', height: '100%' }}>
       <Box sx={{ my: 2 }}>
-        <Image src="/logo-granja-fibra.png" width={200} height={48} alt="Logo Granja Fibra"  priority
-              fetchPriority="auto"
+        <Image src="/logo-granja-fibra.avif" width={200} height={48} alt="Logo Granja Fibra"   priority={false}
+             
               // ajuda o browser a decidir o tamanho certo no server-render
 />
       </Box>
@@ -82,8 +82,8 @@ export default function Header() {
         <Toolbar sx={{ justifyContent: 'space-between', py: 2 }}>
           {/* Logo */}
           <Box display="flex" alignItems="center">
-            <Image src="/logo-granja-fibra.png" width={200} height={48} alt="Logo Granja Fibra" priority
-              fetchPriority="high"
+            <Image src="/logo-granja-fibra.avif" width={200} height={48} alt="Logo Granja Fibra" priority={false}
+             
               // ajuda o browser a decidir o tamanho certo no server-render
               />
           </Box>

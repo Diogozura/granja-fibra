@@ -112,8 +112,8 @@ export default function Header() {
 
           {/* Botão Hamburguer */}
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton edge="end" color="inherit" onClick={handleDrawerToggle}>
-              <FontAwesomeIcon icon={faBars} size="lg" />
+            <IconButton edge="end" color="inherit"       aria-label={'menu'} onClick={handleDrawerToggle}>
+              <FontAwesomeIcon icon={faBars} size="lg" aria-hidden="true" focusable="false"  />
             </IconButton>
           </Box>
         </Toolbar>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import {
@@ -73,8 +74,8 @@ export default function VerificacaoEndereco() {
       };
 
       // sempre salva o lead, mesmo que não atenda
-  
-        await fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/salvarLead.php', {
+
+      await fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/salvarLead.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -92,15 +93,68 @@ export default function VerificacaoEndereco() {
     }
   };
 
+  const [enviando, setEnviando] = useState(false);
+
+  const normalizaTelefone = (t: string) => t.replace(/\D/g, ''); // só dígitos
+
   const handleEnviar = async () => {
-    // Apenas finaliza envio se for atendido
-    if (!planoSelecionado) {
-      alert('Selecione um plano.');
+    // validações básicas
+    if (!nome.trim() || !telefone.trim() || !cep.trim()) {
+      alert('Preencha nome, telefone e CEP.');
       return;
     }
-      setMensagem('Obrigado! Em breve entraremos em contato.');
-   
+    if (!planoSelecionado) {
+      alert('Selecione um plano antes de enviar.');
+      return;
+    }
+
+    setEnviando(true);
+    try {
+      const payload = {
+        nome: nome.trim(),
+        telefone: normalizaTelefone(telefone),
+        cep,
+        numero,
+        plano: planoSelecionado,
+        utm_source: utmSource || 'organico',
+      };
+
+      const res = await fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/salvarLead.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      // tenta JSON; se backend devolver texto simples, cai no catch do JSON e tratamos abaixo
+      let data: any = {};
+      try {
+        data = await res.json();
+      } catch {
+        // fallback: se vier texto (ex: URL pura)
+        const txt = await res.text();
+        data = { sucesso: res.ok, redirect_url: txt?.startsWith('http') ? txt : undefined };
+      }
+
+      if (data?.sucesso && data?.redirect_url) {
+        window.location.href = data.redirect_url;
+        return;
+      }
+
+      // fallback extra: alguns backends retornam 200 com redirect_url mesmo sem flag
+      if (data?.redirect_url) {
+        window.location.href = data.redirect_url;
+        return;
+      }
+
+      alert('Erro ao salvar. Tente novamente.');
+    } catch (e) {
+      console.error(e);
+      alert('Falha na comunicação. Tente novamente.');
+    } finally {
+      setEnviando(false);
+    }
   };
+
 
   return (
     <Container maxWidth="sm" sx={{ py: 6 }}>
@@ -182,7 +236,7 @@ export default function VerificacaoEndereco() {
             </Select>
           </FormControl>
           <Button variant="outlined" onClick={handleEnviar} fullWidth sx={{ mb: 2 }}>
-            Enviar
+           {enviando ? 'Enviando...' : 'Enviar'}
           </Button>
         </Box>
       )}

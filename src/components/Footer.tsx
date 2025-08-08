@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Container, Divider, Grid, Link, Stack, Typography } from '@mui/material';
+import { Box, Container, Divider, Grid, IconButton, Link, Stack, Typography } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
@@ -10,11 +10,11 @@ import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-sv
 const linksUteis = [
   {
     title: 'Promoções',
-    link: '/promocoes' 
+    link: '/promocoes'
   },
   {
     title: 'Graja Vantagens',
-    link: 'https://grajavantagens.partiu.com.br/' 
+    link: 'https://grajavantagens.partiu.com.br/'
   },
   {
     title: 'Graja Livros',
@@ -47,10 +47,10 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.es
           {/* Logo + texto */}
           <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Image src="/logo-granja-fibra.png" width={200} height={48} alt="logo" />
-            <Typography variant="body2" component={'p'} mt={2} mb={2} color="grey.400">
+            <Typography variant="body2" component={'p'} mt={2} mb={2} >
               A melhor internet fibra ótica da região. Conectando você ao futuro com velocidade e qualidade.
             </Typography>
-            <Typography variant="caption" component={'p'} display="block" color="grey.600" mb={2}>
+            <Typography variant="caption" component={'p'} display="block" mb={2}>
               {empresa.nomeEmpresa}
               <br />
               CNPJ {empresa.cnpj}
@@ -58,7 +58,7 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.es
               Licença da Anatel - Processo 53500.101370/2024-74
             </Typography>
             <Box
-              
+
               component={'a'}
               href='https://www.reclameaqui.com.br/empresa/graja-fibra'
             >
@@ -71,7 +71,7 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.es
             </Box>
           </Grid>
 
-          
+
           {/* Links Úteis */}
           <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Typography fontWeight={600} mb={2}>
@@ -116,15 +116,19 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.es
                 </Typography>
               </Box>
               <Box display="flex" alignItems="flex-start" gap={1}>
-                <Link href='https://www.facebook.com/people/Graja-Fibra/61577130784161/'>
-                  <FontAwesomeIcon icon={faFacebook} color='#fff' style={{ marginTop: 4 }} />
-                </Link>
-                <Link href='https://www.instagram.com/grajafibra/'>
-                  <FontAwesomeIcon icon={faInstagram} color='#fff' style={{ marginTop: 4 }} />
-                </Link>
-                <Link href='https://wa.me/558002950800'>
-                  <FontAwesomeIcon icon={faWhatsapp} color='#fff' style={{ marginTop: 4 }} />
-                </Link>
+                <IconButton component="a" href='https://www.facebook.com/people/Graja-Fibra/61577130784161/' aria-label="Página da Graja Fibra no Facebook" target="_blank"
+                  rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faFacebook} color='#fff' size="lg" style={{ marginTop: 4 }} aria-hidden="true" />
+                </IconButton>
+                <IconButton component="a" href='https://www.instagram.com/grajafibra/' aria-label="Perfil da Graja Fibra no Instagram"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faInstagram} color='#fff' size="lg" style={{ marginTop: 4 }} aria-hidden="true" />
+                </IconButton>
+                <IconButton component="a" href='https://wa.me/558002950800' target="_blank"
+                  rel="noopener noreferrer" aria-label="Contato da Graja Fibra no WhatsApp">
+                  <FontAwesomeIcon icon={faWhatsapp} color='#fff' size="lg" style={{ marginTop: 4 }} aria-hidden="true" />
+                </IconButton>
               </Box>
             </Stack>
 

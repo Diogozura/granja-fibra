@@ -12,6 +12,7 @@ import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import BottomBar from '@/components/BottomBar';
 import Head from './head';
+import Script from 'next/script';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -21,7 +22,8 @@ const inter = Inter({
 config.autoAddCss = false;
 
 
-
+const GA_ID = 'G-D7N2LXCZXH'
+const ADS_ID = 'AW-10807484079'
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -30,6 +32,24 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline />
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+            strategy="afterInteractive"
+          />
+          {/* bootstrap do dataLayer + configs */}
+          <Script id="gtag-init" strategy="afterInteractive">
+            {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            // GA4 principal
+            gtag('config', '${GA_ID}', { send_page_view: false });
+
+            // Google Ads (mesmo gtag)
+            gtag('config', '${ADS_ID}');
+          `}
+          </Script>
           <Header />
           {children}
           <CookieBanner />

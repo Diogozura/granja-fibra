@@ -1,32 +1,30 @@
-// src/app/layout.tsx
-import { ReactNode } from 'react';
+// src/app/layout.tsx (Server Component)
+import type { ReactNode } from 'react';
+import { Inter } from 'next/font/google';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
-import { Inter } from 'next/font/google';
+import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
+
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import BottomBar from '@/components/BottomBar';
-import Providers from './providers';
-import { Metadata, Viewport } from 'next';
+import Providers from './providers'; // <- client component
 import JsonLd from './json-ld';
-import Script from 'next/script';
 
 config.autoAddCss = false;
-// 
+
 const inter = Inter({
   subsets: ['latin'],
-  weight: ['400', '600'], // regular e semi bold
+  weight: ['400', '600'],
   display: 'swap',
 });
-
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-
 };
-
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.grajafibra.com.br'),
@@ -57,40 +55,44 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
   },
   icons: { icon: '/favicon.ico' },
-}
+};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR" >
+    <html lang="pt-BR">
       <head>
+        {/* Preconnects úteis */}
+        <link rel="preconnect" href="https://qrcode.grajafibra.inf.br" />
+        <link rel="dns-prefetch" href="https://qrcode.grajafibra.inf.br" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
         <JsonLd />
       </head>
       <body className={inter.className}>
         <Providers>
           <Header />
           {children}
+
+          {/* GA4 direto, fora do caminho crítico */}
           <Script id="ga4" strategy="afterInteractive">
             {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-D7N2LCXZXH', { anonymize_ip: true });
-          `}
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-D7N2LCXZXH', { anonymize_ip: true });
+            `}
           </Script>
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=G-D7N2LCXZXH"
             strategy="afterInteractive"
           />
+
           <CookieBanner />
           <BottomBar />
           <Footer />
         </Providers>
-
-
       </body>
-
     </html>
   );
 }

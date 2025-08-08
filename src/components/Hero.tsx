@@ -2,7 +2,6 @@
 
 import { Box, Button, Typography } from '@mui/material';
 import Image from 'next/image';
-import heroFamilia from "../../public/hero-image-familia.webp"; // caminho relativo à pasta public
 
 export default function Hero() {
   return (
@@ -41,7 +40,7 @@ export default function Hero() {
             priority
             fetchPriority="high"
             // ajuda o browser a decidir o tamanho certo no server-render
-            sizes="(max-width: 900px) 100vw, 70vw"
+             sizes="(max-width: 900px) 100vw, 70vw" // aqui você já está certo, mas pode refina
             style={{
               objectFit: 'cover',
               objectPosition: 'center right',
@@ -177,7 +176,7 @@ export default function Hero() {
           priority
           fetchPriority="high"
           // nada de loading="lazy" aqui
-          sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 70vw"
+          sizes="100vw"
           style={{
             objectFit: 'cover',
             objectPosition: 'center',

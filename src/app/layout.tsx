@@ -7,7 +7,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import BottomBar from '@/components/BottomBar';
-import Script from 'next/script';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import Providers from './providers';
 import { Metadata } from 'next';
 import JsonLd from './json-ld';
@@ -18,10 +18,6 @@ const inter = Inter({
   display: 'swap',
 });
 config.autoAddCss = false;
-
-
-const GA_ID = 'G-D7N2LXCZXH'
-const ADS_ID = 'AW-10807484079'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.grajafibra.com.br'),
@@ -62,20 +58,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <JsonLd />
       </head>
       <body>
-        {/* Carrega UMA vez o gtag, e de forma preguiçosa */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          strategy="lazyOnload"
-        />
-        <Script id="gtag-init" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_ID}', { send_page_view: false });
-            gtag('config', '${ADS_ID}');
-          `}
-        </Script>
+      
         <Providers>
           <Header />
           {children}
@@ -84,6 +67,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Footer />
         </Providers>
       </body>
+      <GoogleAnalytics gaId="G-D7N2LXCZXH" />
     </html>
   );
 }

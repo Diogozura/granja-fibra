@@ -54,9 +54,9 @@ export default function BottomBar() {
                     width={100}
                     height={30}
                     priority
-                    fetchPriority="high"
+                    fetchPriority="low"
                     // ajuda o browser a decidir o tamanho certo no server-render
-                    sizes="(max-width: 450px) 100vw, 70vw"
+                   
                 />
             </Box>
 

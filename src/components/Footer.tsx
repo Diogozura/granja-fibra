@@ -68,9 +68,9 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.es
                 width={250}
                 height={61}
                 priority
-                fetchPriority="high"
+                fetchPriority="low"
                 // ajuda o browser a decidir o tamanho certo no server-render
-                sizes="(max-width: 900px) 100vw, 70vw"
+               
               />
             </Box>
           </Grid>

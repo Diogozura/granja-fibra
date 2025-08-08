@@ -6,11 +6,7 @@ import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 
 
-export const metadata: Metadata = {
-  title: 'Graja Fibra - Provedor de internet',
-  description:
-    'Provedor de Internet Granja fibra A Melhor Internet você encontra aqui Contamos com diversos planos, atendimento de qualidade e tecnologia de ponta para levar a melhor conexão até você!',
-};
+
 
 const Hero = dynamic(() => import('@/components/Hero'));
 const Ofertas = dynamic(() => import('@/components/Oferta'));
@@ -25,6 +21,13 @@ const FaleConosco = dynamic(() => import('@/components/FaleConosco'), {
 export default function Home() {
   return (
     <>
+      <head>
+        <title>Graja Fibra - Provedor de Internet</title>
+        <meta
+          name="description"
+          content="Provedor de Internet Granja Fibra. A Melhor Internet você encontra aqui. Planos, atendimento de qualidade e tecnologia de ponta."
+        />
+      </head>
       <Hero />
       <Ofertas />
       <Beneficios />

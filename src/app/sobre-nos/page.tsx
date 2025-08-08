@@ -2,16 +2,11 @@
 
 import { Container, Typography, Box } from '@mui/material';
 import { motion } from 'framer-motion';
-import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import head from 'next/head';
 
 
-export const metadata: Metadata = {
-  title: 'Sobre nós - graja fibra',
-  description:
-    'Provedor de Internet Granja fibra A Melhor Internet você encontra aqui Contamos com diversos planos, atendimento de qualidade e tecnologia de ponta para levar a melhor conexão até você!',
-};
+
+
 
 const Valores = dynamic(() => import('./Valores'));
 
@@ -19,51 +14,55 @@ export default function Sobre() {
     return (
 
         <>
+            <head>
+                <title>Sobre nós - Graja fibra</title>
+                <meta name="description" content="Planos de internet com ultra velocidade, estabilidade e suporte de qualidade. Cobertura em toda a região. Confira nossas ofertas!" />
+            </head>
             <Container maxWidth="lg" sx={{ py: 10 }}>
                 {/* Título principal */}
-                
+
+                <Typography
+                    component="h1"
+                    variant="h2"
+                    align="center"
+                    className="text-gradient-primary"
+                    fontWeight={600}
+                    gutterBottom
+                >
+                    Sobre a GrajaFibra
+                </Typography>
+
+
+
+                <Typography
+                    component="p"
+                    variant="body1"
+                    textAlign="center"
+                    color="text.secondary"
+                    sx={{ maxWidth: 800, mx: 'auto', mb: 8, mt: 2, lineHeight: 1.8 }}
+                >
+                    A Graja Fibra é um provedor de internet que atua desde 2008, oferecendo
+                    conexão de alta performance com estrutura própria em fibra óptica. Atendemos
+                    mais de 60 bairros e 22 provedores em 5 cidades, com rede conectada diretamente
+                    aos principais datacenters e geradores de conteúdo do mundo. Nosso compromisso
+                    é entregar qualidade, estabilidade e um atendimento que faz a diferença.
+                </Typography>
+
+
+                {/* Seção Nossa História */}
+                <Box mt={12}>
+
                     <Typography
-                        component="h1"
-                        variant="h2"
+                        component="h2"
+                        variant="h3"
                         align="center"
                         className="text-gradient-primary"
                         fontWeight={600}
                         gutterBottom
                     >
-                        Sobre a GrajaFibra
+                        Nossa História
                     </Typography>
-               
 
-               
-                    <Typography
-                        component="p"
-                        variant="body1"
-                        textAlign="center"
-                        color="text.secondary"
-                        sx={{ maxWidth: 800, mx: 'auto', mb: 8, mt: 2, lineHeight: 1.8 }}
-                    >
-                        A Graja Fibra é um provedor de internet que atua desde 2008, oferecendo
-                        conexão de alta performance com estrutura própria em fibra óptica. Atendemos
-                        mais de 60 bairros e 22 provedores em 5 cidades, com rede conectada diretamente
-                        aos principais datacenters e geradores de conteúdo do mundo. Nosso compromisso
-                        é entregar qualidade, estabilidade e um atendimento que faz a diferença.
-                    </Typography>
-                
-
-                {/* Seção Nossa História */}
-                <Box mt={12}>
-                  
-                        <Typography
-                            component="h2"
-                            variant="h3"
-                            align="center"
-                            className="text-gradient-primary"
-                            fontWeight={600}
-                            gutterBottom
-                        >
-                            Nossa História
-                        </Typography>
-                    
 
                     {[
                         `A Graja Fibra iniciou suas atividades em 2008, com o propósito de levar conexão de qualidade para a região do Grajaú e bairros vizinhos. Ao longo dos anos, investimos em infraestrutura própria, migrando da tecnologia via rádio para fibra óptica, sempre buscando excelência em nossos serviços.`,

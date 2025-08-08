@@ -40,7 +40,7 @@ export default function Header() {
         <Image src="/logo-granja-fibra.png" width={200} height={48} alt="Logo Granja Fibra"  priority
               fetchPriority="high"
               // ajuda o browser a decidir o tamanho certo no server-render
-              sizes="(max-width: 900px) 100vw, 70vw"/>
+              sizes="(max-width: 450px) 100vw, 70vw"/>
       </Box>
       <List>
         {navItems.map((item) => (

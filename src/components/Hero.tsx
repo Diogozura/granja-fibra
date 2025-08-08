@@ -37,9 +37,10 @@ export default function Hero() {
             src="/hero-image-familia.webp"
             alt="Família feliz"
             fill
-            decoding="async"
+            priority
             fetchPriority="high"
-            loading="eager"
+            // ajuda o browser a decidir o tamanho certo no server-render
+            sizes="(max-width: 900px) 100vw, 70vw"
             style={{
               objectFit: 'cover',
               objectPosition: 'center right',
@@ -172,9 +173,10 @@ export default function Hero() {
           src="/hero-image-familia.webp"
           alt="Família feliz"
           fill
-          decoding="async"
+          priority
           fetchPriority="high"
-          loading="eager"
+          // ajuda o browser a decidir o tamanho certo no server-render
+          sizes="(max-width: 350px) 100vw, 70vw"
           style={{
             objectFit: 'cover',
             objectPosition: 'center',

@@ -1,7 +1,6 @@
 'use client';
 
 import { Button, Container, Divider, Typography } from "@mui/material";
-import head from "next/head";
 import { useRouter } from "next/navigation";
 
 

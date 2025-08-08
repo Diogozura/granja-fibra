@@ -16,8 +16,6 @@ import {
   faEnvelope,
   faMapMarkerAlt,
   faClock,
-  faRocket,
-  faCheck,
 } from '@fortawesome/free-solid-svg-icons';
 
 import empresa from '@/data/empresa.json'; // <-- importando os dados

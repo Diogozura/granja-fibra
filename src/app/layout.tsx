@@ -1,7 +1,5 @@
 // src/app/layout.tsx
 import { ReactNode } from 'react';
-import { CssBaseline, ThemeProvider } from '@mui/material';
-import theme from '../theme/theme';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import { Inter } from 'next/font/google';
@@ -9,7 +7,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import BottomBar from '@/components/BottomBar';
-import Head from './head';
 import Script from 'next/script';
 import Providers from './providers';
 import { Metadata } from 'next';
@@ -68,9 +65,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Carrega UMA vez o gtag, e de forma preguiçosa */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
-        <Script id="gtag-init" strategy="lazyOnload">
+        <Script id="gtag-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

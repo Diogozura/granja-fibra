@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Button, Typography, Container } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import Image from 'next/image';
 
 export default function Hero() {
@@ -37,10 +37,9 @@ export default function Hero() {
             src="/hero-image-familia.webp"
             alt="Família feliz"
             fill
-            priority
+            decoding="async"
             fetchPriority="high"
-            // ajuda o browser a decidir o tamanho certo no server-render
-            sizes="(max-width: 900px) 100vw, 70vw"
+            loading="eager"
             style={{
               objectFit: 'cover',
               objectPosition: 'center right',
@@ -173,10 +172,9 @@ export default function Hero() {
           src="/hero-image-familia.webp"
           alt="Família feliz"
           fill
-          priority
+          decoding="async"
           fetchPriority="high"
-          // ajuda o browser a decidir o tamanho certo no server-render
-          sizes="(max-width: 900px) 100vw, 70vw"
+          loading="eager"
           style={{
             objectFit: 'cover',
             objectPosition: 'center',

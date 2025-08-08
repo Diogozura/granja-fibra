@@ -31,6 +31,10 @@ export const metadata: Metadata = {
     'planos de internet',
     'internet residencial',
   ],
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+  },
   robots: { index: true, follow: true },
   openGraph: {
     title: 'Graja Fibra',
@@ -54,7 +58,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" className={inter.className}>
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <JsonLd />
       </head>
       <body>

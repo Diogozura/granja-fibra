@@ -2,8 +2,16 @@
 
 import { Container, Typography, Box } from '@mui/material';
 import { motion } from 'framer-motion';
+import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import head from 'next/head';
+
+
+export const metadata: Metadata = {
+  title: 'Sobre nós - graja fibra',
+  description:
+    'Provedor de Internet Granja fibra A Melhor Internet você encontra aqui Contamos com diversos planos, atendimento de qualidade e tecnologia de ponta para levar a melhor conexão até você!',
+};
 
 const Valores = dynamic(() => import('./Valores'));
 
@@ -11,10 +19,6 @@ export default function Sobre() {
     return (
 
         <>
-            <head>
-                <title>Sobre nós - graja fibra </title>
-                <meta name="description" content="Provedor de Internet Granja fibra A Melhor Internet você encontra aqui Contamos com diversos planos, atendimento de qualidade e tecnologia de ponta para levar a melhor conexão até você!" />
-            </head>
             <Container maxWidth="lg" sx={{ py: 10 }}>
                 {/* Título principal */}
                 

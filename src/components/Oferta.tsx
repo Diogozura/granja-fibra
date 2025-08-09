@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { withBasePath } from '@/utils/paths';
 
 
 interface Oferta {
@@ -73,7 +74,7 @@ function Ofertas() {
                     avatar={
                       <Avatar sx={{ bgcolor: 'transparent' }}>
                         <Image
-                          src="/Discount.svg"
+                          src={withBasePath("/Discount.svg")}
                           alt="desconto promoção"
                           width={20}
                           height={20}
@@ -103,7 +104,7 @@ function Ofertas() {
                     }}
                   >
                     <Image
-                      src="/Discount.svg"
+                      src={withBasePath("/Discount.svg")}
                       width={40}
                       height={40}
                       alt="desconto promoção - graja fibra"

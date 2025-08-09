@@ -12,6 +12,7 @@ import CookieBanner from '@/components/CookieBanner';
 import BottomBar from '@/components/BottomBar';
 import Providers from './providers'; // <- client component
 import JsonLd from './json-ld';
+import { withBasePath } from '@/utils/paths';
 
 config.autoAddCss = false;
 
@@ -28,9 +29,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.grajafibra.com.br'),
-  title: 'Graja Fibra',
-  description:
-    'Provedor de Internet Granja Fibra. A Melhor Internet você encontra aqui. Planos, atendimento de qualidade e tecnologia de ponta.',
+
   keywords: [
     'internet fibra',
     'provedor de internet',
@@ -45,22 +44,22 @@ export const metadata: Metadata = {
       'Provedor de Internet Granja Fibra. A Melhor Internet você encontra aqui.',
     url: 'https://www.grajafibra.com.br',
     type: 'website',
-    images: ['/og-image.png'],
+    images: ['/og-imagem.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Graja Fibra',
     description:
       'Provedor de Internet Granja Fibra. A Melhor Internet você encontra aqui.',
-    images: ['/og-image.png'],
-  },
-  icons: { icon: '/favicon.ico' },
+    images: withBasePath('/og-imagem.png'),
+  }
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
       <head>
+        <link rel="icon" href={withBasePath('/favicon.ico')} />
         {/* Preconnects úteis */}
         <link rel="preconnect" href="https://qrcode.grajafibra.inf.br" />
         <link rel="dns-prefetch" href="https://qrcode.grajafibra.inf.br" />

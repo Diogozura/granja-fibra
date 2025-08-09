@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Box, Button, Typography, useTheme, Link, Paper } from '@mui/material';
+import { Box, Button, Typography, useTheme, Paper } from '@mui/material';
+import Link from 'next/link';
 
 export default function CookieBanner() {
     const [showBanner, setShowBanner] = useState(false);
@@ -47,7 +48,7 @@ export default function CookieBanner() {
             >
                 <Typography variant="body2" sx={{ mb: 1.5 }}>
                     Usamos cookies para melhorar sua experiência. Ao continuar, você aceita nossa{' '}
-                    <Link href="/politica-privacidade" target="_blank" rel="noopener" underline="hover">
+                    <Link href="/politica-privacidade" target="_blank" rel="noopener" passHref>
                         Política de Privacidade
                     </Link>.
                 </Typography>

@@ -18,6 +18,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { withBasePath } from '@/utils/paths';
 
 const navItems = [
   { title: 'Home', link: '/' },
@@ -37,7 +38,7 @@ export default function Header() {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', bgcolor: 'secondary.main', height: '100%' }}>
       <Box sx={{ my: 2 }}>
-        <Image src="/logo-granja-fibra.avif" width={200} height={48} alt="Logo Granja Fibra"   priority={false}
+        <Image src={withBasePath("/logo-graja-fibra.avif")} width={200} height={48} alt="Logo Graja Fibra"   priority={false}
              
               // ajuda o browser a decidir o tamanho certo no server-render
 />
@@ -82,7 +83,7 @@ export default function Header() {
         <Toolbar sx={{ justifyContent: 'space-between', py: 2 }}>
           {/* Logo */}
           <Box display="flex" alignItems="center">
-            <Image src="/logo-granja-fibra.avif" width={200} height={48} alt="Logo Granja Fibra" priority={false}
+            <Image src={withBasePath("/logo-graja-fibra.avif")} width={200} height={48} alt="Logo Graja Fibra" priority={false}
              
               // ajuda o browser a decidir o tamanho certo no server-render
               />

@@ -1,11 +1,13 @@
 'use client';
 
-import { Box, Container, Divider, Grid, IconButton, Link, Stack, Typography } from '@mui/material';
+import { Box, Container, Divider, Grid, IconButton, Stack, Typography } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import empresa from '@/data/empresa.json'; // <-- importando os dados
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { withBasePath } from '@/utils/paths';
+import Link from 'next/link';
 
 const linksUteis = [
   {
@@ -46,7 +48,7 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.es
         <Grid container spacing={4} justifyContent={'space-between'}>
           {/* Logo + texto */}
           <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-            <Image src="/logo-granja-fibra.png" width={200} height={48} alt="logo" />
+            <Image src={withBasePath("/logo-graja-fibra.avif")} width={200} height={48} alt="logo graja fibra" />
             <Typography variant="body2" component={'p'} mt={2} mb={2} >
               A melhor internet fibra ótica da região. Conectando você ao futuro com velocidade e qualidade.
             </Typography>
@@ -63,7 +65,7 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.es
               href='https://www.reclameaqui.com.br/empresa/graja-fibra'
             >
               <Image
-                src="/reclame-aqui-barra.webp"
+                src={withBasePath("/reclame-aqui-barra.webp")}
                 alt="Empresa verificada Reclame Aqui"
                 width={250}
                 height={65}
@@ -86,9 +88,8 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.es
                 <Link
                   key={item.title}
                   href={item.link}
-                  underline="hover"
                   color="grey.300"
-                  sx={{ fontSize: 14 }}
+                  passHref
                 >
                   {item.title}
                 </Link>
@@ -108,14 +109,14 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.es
               </Box>
               <Box display="flex" alignItems="center" gap={1}>
                 <FontAwesomeIcon icon={faEnvelope} />
-                <Link href={`mailto:${empresa.email}`} underline="hover" color="grey.300">
+                <Link href={`mailto:${empresa.email}`}  color="grey.300">
                   {empresa.email}
                 </Link>
               </Box>
               <Box display="flex" alignItems="flex-start" gap={1}>
                 <FontAwesomeIcon icon={faMapMarkerAlt} style={{ marginTop: 4 }} />
                 <Typography variant="body2">
-                  <Link href={empresa.endereco.link} underline="hover"
+                  <Link href={empresa.endereco.link} 
                     color="grey.300">{enderecoCompleto}</Link>
                 </Typography>
               </Box>
@@ -153,7 +154,7 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.es
         >
           <Typography variant="caption">© 2001- 2025 GrajaFibra. Todos os direitos reservados.</Typography>
           <Stack direction="row" spacing={3}>
-            <Link href="/politica-privacidade" underline="hover" color="grey.500">
+            <Link href="/politica-privacidade"  color="grey.500">
               Política de Privacidade
             </Link>
           </Stack>

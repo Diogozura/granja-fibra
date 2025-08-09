@@ -22,10 +22,10 @@ export default function NotFound() {
             {/* LOGO */}
             <Box
                 component="img"
-                src="/logo-granja-fibra.png" // <- ajuste para o caminho correto da sua logo
+                src="/logo-graja-fibra.avif" // <- ajuste para o caminho correto da sua logo
                 alt="GWA Logo"
                 sx={{
-                    width: 120,
+                    width: 320,
                     mb: 4,
                 }}
             />

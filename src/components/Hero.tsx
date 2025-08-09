@@ -1,5 +1,6 @@
 'use client';
 
+import { withBasePath } from '@/utils/paths';
 import { Box, Button, Typography } from '@mui/material';
 import Image from 'next/image';
 
@@ -34,7 +35,7 @@ export default function Hero() {
           }}
         >
           <Image
-            src={'/hero-image-familia.avif'}
+            src={withBasePath('/hero-image-familia.avif')}
             alt="Família feliz"
             fill
             priority
@@ -170,7 +171,7 @@ export default function Hero() {
       >
         {/* Imagem de fundo */}
         <Image
-          src={'/hero-image-familia-mobile.avif'}
+          src={withBasePath('/hero-image-familia-mobile.avif')}
           alt="Família feliz - graja fibra"
           fill
           priority

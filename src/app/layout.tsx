@@ -61,8 +61,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <link rel="icon" href={withBasePath('/favicon.ico')} />
         {/* Preconnects úteis */}
-        <link rel="preconnect" href="https://qrcode.grajafibra.inf.br" />
-        <link rel="dns-prefetch" href="https://qrcode.grajafibra.inf.br" />
+        <link rel="preconnect" href="https://qrcode.grajafibra.net.br" />
+        <link rel="dns-prefetch" href="https://qrcode.grajafibra.net.br" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
@@ -72,20 +72,20 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Providers>
           <Header />
           {children}
-
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-K3VVGLXG36"
+            strategy="afterInteractive"
+          />
           {/* GA4 direto, fora do caminho crítico */}
           <Script id="ga4" strategy="afterInteractive">
             {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-D7N2LCXZXH', { anonymize_ip: true });
+              gtag('config', 'G-K3VVGLXG36', { anonymize_ip: true });
             `}
           </Script>
-          <Script
-            src="https://www.googletagmanager.com/gtag/js?id=G-D7N2LCXZXH"
-            strategy="afterInteractive"
-          />
+
 
           <CookieBanner />
           <BottomBar />

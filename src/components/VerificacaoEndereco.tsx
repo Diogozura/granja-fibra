@@ -35,7 +35,7 @@ export default function VerificacaoEndereco() {
   }, []);
 
   useEffect(() => {
-    fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/dados.php')
+    fetch('https://qrcode.grajafibra.net.br/sistema_avaliacoes/dados.php')
       .then(res => res.json())
       .then(data => {
         const planosComuns = data.planos || [];
@@ -61,7 +61,7 @@ export default function VerificacaoEndereco() {
     }
 
     try {
-      const res = await fetch(`https://qrcode.grajafibra.inf.br/sistema_avaliacoes/consultaCep.php?cep=${cep}`);
+      const res = await fetch(`https://qrcode.grajafibra.net.br/sistema_avaliacoes/consultaCep.php?cep=${cep}`);
       const data = await res.json();
 
       const payload = {
@@ -75,17 +75,18 @@ export default function VerificacaoEndereco() {
 
       // sempre salva o lead, mesmo que não atenda
 
-      await fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/salvarLead.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
+
 
       if (data.autorizado) {
         setMensagem(`✅ Atendemos sua região: ${data.dados.cidade} - ${data.dados.estado}`);
         setLiberarPlano(true);
       } else {
         setMensagem('❌ Que pena! Infelizmente não atendemos o seu endereço . Assim que houver disponibilidade entraremos em contato.');
+        await fetch('https://qrcode.grajafibra.net.br/sistema_avaliacoes/salvarLead.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
         setLiberarPlano(false);
       }
     } catch {
@@ -119,7 +120,7 @@ export default function VerificacaoEndereco() {
         utm_source: utmSource || 'organico',
       };
 
-      const res = await fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/salvarLead.php', {
+      const res = await fetch('https://qrcode.grajafibra.net.br/sistema_avaliacoes/salvarLead.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -236,7 +237,7 @@ export default function VerificacaoEndereco() {
             </Select>
           </FormControl>
           <Button variant="outlined" onClick={handleEnviar} fullWidth sx={{ mb: 2 }}>
-           {enviando ? 'Enviando...' : 'Enviar'}
+            {enviando ? 'Enviando...' : 'Enviar'}
           </Button>
         </Box>
       )}

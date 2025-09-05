@@ -81,7 +81,7 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade}`;
               <Box display="flex" gap={1}>
                 <FontAwesomeIcon icon={faClock} />
                 <Typography variant="body2">
-                  <strong>Horário :</strong> Seg–Sex: 8h às 18h | Sáb: 8h às 12h
+                  <strong>Horários :</strong> <br/> Seg–Sex: 8h às 20h <br/> Sábado: 8h às 18h <br/> Dom: 8h às 18h <br/>  Feriado: 8h às 18h
                 </Typography>
               </Box>
             </Stack>

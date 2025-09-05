@@ -30,7 +30,7 @@ export default function Planos() {
   const [planos, setPlanos] = useState<Plano[]>([]);
 
   useEffect(() => {
-    fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/dados.php')
+    fetch('https://qrcode.grajafibra.net.br/sistema_avaliacoes/dados.php')
       .then((res) => res.json())
       .then((data) => setPlanos(data.planos));
   }, []);

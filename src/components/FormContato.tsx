@@ -29,7 +29,7 @@ export default function FormContato() {
     formData.append('mensagem', mensagem);
 
     try {
-      const res = await fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/form-contato.php', {
+      const res = await fetch('https://qrcode.grajafibra.net.br/sistema_avaliacoes/form-contato.php', {
         method: 'POST',
         body: formData,
       });

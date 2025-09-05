@@ -109,14 +109,14 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.es
               </Box>
               <Box display="flex" alignItems="center" gap={1}>
                 <FontAwesomeIcon icon={faEnvelope} />
-                <Link href={`mailto:${empresa.email}`}  color="grey.300">
+                <Link href={`mailto:${empresa.email}`} color="grey.300">
                   {empresa.email}
                 </Link>
               </Box>
               <Box display="flex" alignItems="flex-start" gap={1}>
                 <FontAwesomeIcon icon={faMapMarkerAlt} style={{ marginTop: 4 }} />
                 <Typography variant="body2">
-                  <Link href={empresa.endereco.link} 
+                  <Link href={empresa.endereco.link}
                     color="grey.300">{enderecoCompleto}</Link>
                 </Typography>
               </Box>
@@ -154,7 +154,7 @@ ${empresa.endereco.bairro}, ${empresa.endereco.cidade} – ${empresa.endereco.es
         >
           <Typography variant="caption">© 2001- 2025 GrajaFibra. Todos os direitos reservados.</Typography>
           <Stack direction="row" spacing={3}>
-            <Link href="/politica-privacidade"  color="grey.500">
+            <Link href="/politica-privacidade" color="grey.500">
               Política de Privacidade
             </Link>
           </Stack>

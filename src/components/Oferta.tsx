@@ -29,7 +29,7 @@ function Ofertas() {
   const [dados, setDados] = useState<DadosOfertas | null>(null);
 
   useEffect(() => {
-    fetch('https://qrcode.grajafibra.inf.br/sistema_avaliacoes/dados.php')
+    fetch('https://qrcode.grajafibra.net.br/sistema_avaliacoes/dados.php')
       .then((res) => res.json())
       .then((data) => {
         const ofertas = data?.ofertas; // Pula a primeira posição

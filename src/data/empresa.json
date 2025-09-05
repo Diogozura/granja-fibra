@@ -15,7 +15,7 @@
   "endereco": {
     "logradouro": "Avenida Ernesto João Marcelino",
     "numero": "2241",
-    "complemento": "Sala 101",
+    "complemento": "Sala 1",
     "bairro": "Fazenda da ilha",
     "cidade": "Embu Guaçu",
     "estado": "SP",
@@ -25,7 +25,8 @@
   "horarioFuncionamento": {
     "segundaASexta": "07:00 - 20:00",
     "sabado": "08:00 - 18:00",
-    "domingo": "08:00 - 18:00"
+    "domingo": "08:00 - 18:00",
+    "feriado": "08:00 - 18:00"
   },
   "responsavelTecnico": {
     "nome": "João da Silva",
